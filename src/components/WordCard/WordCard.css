@@ -1,0 +1,32 @@
+.card {
+  width: 80%;
+  border-radius: 10px;
+  border: 5px solid orange;
+  box-shadow: 4px 7px 7px 6px rgba(238, 201, 57, 0.2);
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: 300px;
+  }
+}
+
+.word {
+  font-size: 40px;
+}
+
+.transcription {
+  font-size: 25px;
+}
+
+.text {
+  padding: 5px;
+}
+
+.topic {
+  font-size: 14px;
+}
+
+.image {
+  width: 30%;
+}
