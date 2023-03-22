@@ -3,10 +3,8 @@
   border-radius: 10px;
   border: 5px solid orange;
   box-shadow: 4px 7px 7px 6px rgba(238, 201, 57, 0.2);
-}
 
-@media (min-width: 768px) {
-  .card {
+  @media (min-width: 768px) {
     width: 300px;
   }
 }

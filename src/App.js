@@ -1,34 +1,37 @@
 import "./App.css";
+import Header from "./components/Header/Header";
 import WordCard from "./components/WordCard/WordCard";
-import "./components/WordCard/WordCard.css";
+import "./components/WordCard/wordCard.scss";
 
 const words = [
   {
-    meaning: "Work",
-    transcription: "[wɜːk]",
-    translation: "Работа",
-    topic: "business",
-    url: "https://stihi.ru/pics/2018/12/25/8541.jpg",
+    id: "13366",
+    english: "mama",
+    transcription: "[mama]",
+    russian: "мама",
+    tags: "family",
+    tags_json: '["family"]',
   },
   {
-    meaning: "Profit",
-    transcription: "[ˈprɒfɪt]",
-    translation: "Прибыль",
-    topic: "business",
-    url: "https://static.tildacdn.com/tild3633-3638-4266-a265-313266623261/chto-eto-takoe-priby.jpg",
+    id: "13367",
+    english: "dad",
+    transcription: "[dæd]",
+    russian: "папа",
+    tags: "family",
+    tags_json: '["family"]',
   },
 ];
 
 function App() {
   return (
     <div className="App">
+      <Header></Header>
       {words.map((word) => (
         <WordCard
-          meaning={word.meaning}
+          english={word.english}
           transcription={word.transcription}
-          translation={word.translation}
-          topic={word.topic}
-          url={word.url}
+          russian={word.russian}
+          tags={word.tags}
         ></WordCard>
       ))}
     </div>
