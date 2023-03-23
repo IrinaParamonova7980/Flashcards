@@ -1,7 +1,7 @@
 import "./App.css";
+import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import WordCard from "./components/WordCard/WordCard";
-//import "./components/WordCard/wordCard.module.scss";
 
 const words = [
   {
@@ -35,6 +35,7 @@ function App() {
           key={index}
         ></WordCard>
       ))}
+      <Footer></Footer>
     </div>
   );
 }

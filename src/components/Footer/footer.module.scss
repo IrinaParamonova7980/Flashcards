@@ -1,0 +1,34 @@
+@import "./../variables.scss";
+
+.footer {
+  display: flex;
+  padding: 15px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid $colorBasic;
+  background-color: $textDark;
+}
+
+.logo_block {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  padding: 5px;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 600;
+  color: $textLight;
+}
+
+.text {
+  font-size: 16px;
+  color: $textLight;
+  padding: 0 10px;
+  text-decoration: none;
+  cursor: pointer;
+}

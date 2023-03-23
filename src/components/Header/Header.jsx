@@ -1,5 +1,5 @@
 import styles from "./header.module.scss";
-import logo from "./flash_cards.png";
+import logo from "./../assets/logo.png";
 
 function Header() {
   return (

@@ -1,11 +1,10 @@
-// @value colors: "../Header/components/variables.scss ";
-// @value customBlue from colors;
+@import "./../variables.scss";
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid orange;
+  border-bottom: 2px solid $colorBasic;
 }
 
 .logo_block {
@@ -28,8 +27,8 @@
 .registration {
   padding: 5px 10px;
   margin: 5px;
-  border-radius: 5px;
-  border-color: orange;
+  border-radius: 10px;
+  border-color: $colorBasic;
   font-size: 14px;
   cursor: pointer;
 }
@@ -37,10 +36,10 @@
 .enter {
   margin: 0 auto;
   background: white;
-  color: orange;
+  color: $colorBasic;
 }
 
 .registration {
-  background: orange;
+  background: $colorBasic;
   color: white;
 }
