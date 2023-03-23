@@ -20,15 +20,21 @@
 }
 
 .name {
-  font-size: 20px;
-  font-weight: 600;
+  display: none;
+  font-size: $fontAverage;
+  font-weight: $fontWeightBold;
   color: $textLight;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
 }
 
 .text {
-  font-size: 16px;
+  font-size: $fontSmall;
   color: $textLight;
-  padding: 0 10px;
+  padding: 5px 10px;
   text-decoration: none;
   cursor: pointer;
 }
+
