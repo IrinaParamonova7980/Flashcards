@@ -1,3 +1,6 @@
+// @value colors: "../Header/components/variables.scss ";
+// @value customBlue from colors;
+
 .header {
   display: flex;
   align-items: center;
@@ -5,7 +8,7 @@
   border-bottom: 2px solid orange;
 }
 
-.logo-block {
+.logo_block {
   display: flex;
   align-items: center;
 }

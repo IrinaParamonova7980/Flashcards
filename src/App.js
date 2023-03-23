@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./components/Header/Header";
 import WordCard from "./components/WordCard/WordCard";
-import "./components/WordCard/wordCard.scss";
+//import "./components/WordCard/wordCard.module.scss";
 
 const words = [
   {
@@ -26,12 +26,13 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
-      {words.map((word) => (
+      {words.map((word, index) => (
         <WordCard
           english={word.english}
           transcription={word.transcription}
           russian={word.russian}
           tags={word.tags}
+          key={index}
         ></WordCard>
       ))}
     </div>

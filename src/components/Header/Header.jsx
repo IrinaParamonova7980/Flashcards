@@ -1,16 +1,16 @@
-import "./header.scss";
+import styles from "./header.module.scss";
 import logo from "./flash_cards.png";
 
 function Header() {
   return (
-    <div className="header">
-      <div className="logo-block">
-        <img src={logo} className="logo"></img>
-        <div className="name">FleshCards</div>
+    <div className={styles.header}>
+      <div className={styles.logo_block}>
+        <img src={logo} className={styles.logo}></img>
+        <div className={styles.name}>FleshCards</div>
       </div>
-      <div className="button-block">
-        <button className="enter">Войти</button>
-        <button className="registration">Регистрация</button>
+      <div className={styles.button_block}>
+        <button className={styles.enter}>Войти</button>
+        <button className={styles.registration}>Регистрация</button>
       </div>
     </div>
   );
