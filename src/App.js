@@ -1,40 +1,38 @@
+import data from "./data.json";
 import "./App.css";
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
-import WordCard from "./components/WordCard/WordCard";
-
-const words = [
-  {
-    id: "13366",
-    english: "mama",
-    transcription: "[mama]",
-    russian: "мама",
-    tags: "family",
-    tags_json: '["family"]',
-  },
-  {
-    id: "13367",
-    english: "dad",
-    transcription: "[dæd]",
-    russian: "папа",
-    tags: "family",
-    tags_json: '["family"]',
-  },
-];
+import ListWords from "./components/listWords/ListWords";
+import Footer from "./components/footer/Footer";
+import Header from "./components/header/Header";
+import WordCard from "./components/wordCard/WordCard";
 
 function App() {
   return (
     <div className="App">
       <Header></Header>
-      {words.map((word, index) => (
-        <WordCard
-          english={word.english}
-          transcription={word.transcription}
-          russian={word.russian}
-          tags={word.tags}
-          key={index}
-        ></WordCard>
-      ))}
+      <main>
+        <section>
+          {data.map((data, index) => (
+            <ListWords
+              english={data.english}
+              transcription={data.transcription}
+              russian={data.russian}
+              tags={data.tags}
+              key={index}
+            ></ListWords>
+          ))}
+        </section>
+        <div>
+          {data.map((data, index) => (
+            <WordCard
+              english={data.english}
+              transcription={data.transcription}
+              russian={data.russian}
+              tags={data.tags}
+              key={index}
+            ></WordCard>
+          ))}
+        </div>
+      </main>
       <Footer></Footer>
     </div>
   );
