@@ -1,28 +1,21 @@
 @import "./../variables.scss";
 
 .card {
+  display: flex;
+  justify-content: center;
   width: 80%;
   height: 200px;
   border-radius: 10px;
   border: 5px solid $colorBasic;
   box-shadow: 4px 7px 7px 6px rgba(238, 201, 57, 0.2);
 
-  @media (min-width: 768px) and (orientation: landscape){
+  @media (min-width: 768px) and (orientation: landscape) {
     width: 300px;
   }
 }
 
 .word {
+  align-self: center;
   font-size: $fontWord;
   color: $textDark;
 }
-
-.transcription {
-  font-size: $fontBig;
-  padding-bottom: 20px;
-}
-
-.topic {
-  font-size: $fontSmall;  
-}
-

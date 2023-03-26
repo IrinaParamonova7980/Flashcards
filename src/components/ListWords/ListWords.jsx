@@ -14,7 +14,7 @@ function ListWords(props) {
           <th>Транскрипция</th>
           <th>Перевод</th>
           <th>Тема</th>
-          <th ></th>
+          <th></th>
         </tr>
       </thead>
       {props.newWord ? (
