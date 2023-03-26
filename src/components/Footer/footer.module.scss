@@ -32,7 +32,12 @@
 
 .text {
   font-size: $fontSmall;
-  color: $textLight;
+  font-weight: $fontWeightBold;
+  color: $colorThird;
   padding: 5px 10px;
-  cursor: pointer;
+    cursor: pointer;
+
+  &:hover {
+    color: $textLight;
+  }
 }

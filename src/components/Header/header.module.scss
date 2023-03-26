@@ -4,7 +4,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid $colorBasic;
 }
 
 .logo_block {
@@ -20,26 +19,25 @@
 .name {
   font-size: $fontAverage;
   font-weight: $fontWeightBold;
-  color: green;
+  color: $colorFourth;
 }
 
 .enter,
 .registration {
-  padding: 5px 10px;
-  margin: 5px;
-  border-radius: 10px;
   border-color: $colorBasic;
-  font-size: $fontTiny;
-  cursor: pointer;
+
+  &:hover {
+    color: $colorThird;
+  }
 }
 
 .enter {
-  margin: 0 auto;
-  background: white;
+  background: $textLight;
   color: $colorBasic;
 }
 
 .registration {
+  margin: 0 10px;
   background: $colorBasic;
-  color: white;
+  color: $textLight;
 }
