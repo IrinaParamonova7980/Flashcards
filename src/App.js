@@ -27,14 +27,14 @@ function App() {
             ></WordCard>
           ))}
         </div>
-        <div>
+        {/* <div>
           {data.map((data) => (
             <WordcardTranslation
               russian={data.russian}
               key={data.id}
             ></WordcardTranslation>
           ))}
-        </div>
+        </div> */}
       </main>
       <footer>
         <Footer></Footer>
