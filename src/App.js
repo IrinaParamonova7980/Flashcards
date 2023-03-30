@@ -4,7 +4,6 @@ import ListWords from "./components/listWords/ListWords";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import WordCard from "./components/wordCard/WordCard";
-import WordcardTranslation from "./components/wordcardTranslation/WordcardTranslation";
 
 function App() {
   return (
@@ -14,7 +13,7 @@ function App() {
       </header>
       <main>
         <section>
-          <ListWords newWord={true}></ListWords>
+          <ListWords></ListWords>
         </section>
         <div>
           {data.map((data) => (
@@ -27,14 +26,6 @@ function App() {
             ></WordCard>
           ))}
         </div>
-        {/* <div>
-          {data.map((data) => (
-            <WordcardTranslation
-              russian={data.russian}
-              key={data.id}
-            ></WordcardTranslation>
-          ))}
-        </div> */}
       </main>
       <footer>
         <Footer></Footer>

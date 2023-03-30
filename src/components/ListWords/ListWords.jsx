@@ -3,8 +3,14 @@ import data from "../../data.json";
 import editIcon from "../assets/edit.png";
 import deleteIcon from "../assets/delete.png";
 import Button from "../common/button/Button";
+import { useState } from "react";
 
 function ListWords(props) {
+  const [pressed, setPressed] = useState(true);
+  const edit = () => {
+    setPressed(!pressed);
+  };
+
   return (
     <table className={styles.table}>
       <caption className={styles.heading}>Список слов</caption>
@@ -17,7 +23,7 @@ function ListWords(props) {
           <th></th>
         </tr>
       </thead>
-      {props.newWord ? (
+      {pressed ? (
         <tbody className={styles.body}>
           {data.map((data) => (
             <tr key={data.id}>
@@ -30,6 +36,7 @@ function ListWords(props) {
                   src={editIcon}
                   alt={"Редактировать"}
                   className={styles.image}
+                  onClick={edit}
                 ></img>
                 <img
                   src={deleteIcon}
@@ -44,16 +51,24 @@ function ListWords(props) {
         <tbody className={styles.body}>
           <tr className={styles.input_block}>
             <td>
-              <input type="text" className={styles.input}></input>
+              <input type="text" className={styles.input}>
+                {props.english}
+              </input>
             </td>
             <td>
-              <input type="text" className={styles.input}></input>
+              <input type="text" className={styles.input}>
+                {props.transcription}
+              </input>
             </td>
             <td>
-              <input type="text" className={styles.input}></input>
+              <input type="text" className={styles.input}>
+                {props.russian}
+              </input>
             </td>
             <td>
-              <input type="text" className={styles.input}></input>
+              <input type="text" className={styles.input}>
+                {props.tags}
+              </input>
             </td>
             <td className={`${styles.button_block} ${styles.cool1}`}>
               <Button
