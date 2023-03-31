@@ -29,13 +29,9 @@
 
 .button {
   margin: 30px;
-  padding: 5px 10px;
-  border-radius: 10px;
-  font-size: $fontTiny;
   border-color: $colorBasic_transparent;
   background: $colorBasic;
   color: $textLight;
-  cursor: pointer;
 
   &:hover {
     font-weight: $fontWeightBold;

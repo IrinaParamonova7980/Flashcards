@@ -57,13 +57,9 @@ td {
 
 .button_save,
 .button_cancel {
-  padding: 5px 10px;
-  border-radius: 10px;
-  font-size: $fontTiny;
   color: $textLight;
   border-color: $colorFourth;
   background: $colorBasic;
-  cursor: pointer;
 
   &:hover {
     color: $colorSecond;

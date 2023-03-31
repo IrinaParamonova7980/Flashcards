@@ -10,8 +10,8 @@ function Header() {
         <div className={styles.name}>FleshCards</div>
       </div>
       <div className={styles.button_block}>
-        <Button button="Войти" buttonStyle={styles.enter}></Button>
-        <Button button="Регистрация" buttonStyle={styles.registration}></Button>
+        <Button button="Войти" buttonstyle={styles.enter}></Button>
+        <Button button="Регистрация" buttonstyle={styles.registration}></Button>
       </div>
     </div>
   );

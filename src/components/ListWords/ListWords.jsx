@@ -2,10 +2,11 @@ import styles from "./listWords.module.scss";
 import data from "../../data.json";
 import editIcon from "../assets/edit.png";
 import deleteIcon from "../assets/delete.png";
+import Button from "../common/button/Button";
 import { useState } from "react";
 
-export default function ListWords(props) {
-  const [pressed, editWord] = useState(true);
+export default function ListWords() {
+  const [editing, editWord] = useState(true);
 
   return (
     <table className={styles.table}>
@@ -19,7 +20,7 @@ export default function ListWords(props) {
           <th></th>
         </tr>
       </thead>
-      {pressed ? (
+      {editing ? (
         <tbody className={styles.body}>
           {data.map((data) => (
             <tr key={data.id}>
@@ -47,39 +48,51 @@ export default function ListWords(props) {
         </tbody>
       ) : (
         <tbody className={styles.body}>
-          <tr className={styles.input_block}>
-            <td>
-              <input type="text" className={styles.input}>
-                {props.english}
-              </input>
-            </td>
-            <td>
-              <input type="text" className={styles.input}>
-                {props.transcription}
-              </input>
-            </td>
-            <td>
-              <input type="text" className={styles.input}>
-                {props.russian}
-              </input>
-            </td>
-            <td>
-              <input type="text" className={styles.input}>
-                {props.tags}
-              </input>
-            </td>
-            <td className={styles.button_block}>
-              <button className={styles.button_save}>"Сохранить"</button>
-              <button
-                className={styles.button_cancel}
-                onClick={() => {
-                  editWord(true);
-                }}
-              >
-                "Отмена"
-              </button>
-            </td>
-          </tr>
+          {data.map((data) => (
+            <tr className={styles.input_block}>
+              <td>
+                <input
+                  type="text"
+                  className={styles.input}
+                  value={data.english}
+                ></input>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  className={styles.input}
+                  value={data.transcription}
+                ></input>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  className={styles.input}
+                  value={data.russian}
+                ></input>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  className={styles.input}
+                  value={data.tags}
+                ></input>
+              </td>
+              <td className={styles.button_block}>
+                <Button
+                  button="Сохранить"
+                  buttonstyle={styles.button_save}
+                ></Button>
+                <Button
+                  button="Отмена"
+                  buttonstyle={styles.button_cancel}
+                  click={() => {
+                    editWord(true);
+                  }}
+                ></Button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       )}
     </table>
