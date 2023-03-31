@@ -2,14 +2,10 @@ import styles from "./listWords.module.scss";
 import data from "../../data.json";
 import editIcon from "../assets/edit.png";
 import deleteIcon from "../assets/delete.png";
-import Button from "../common/button/Button";
 import { useState } from "react";
 
-function ListWords(props) {
-  const [pressed, setPressed] = useState(true);
-  const edit = () => {
-    setPressed(!pressed);
-  };
+export default function ListWords(props) {
+  const [pressed, editWord] = useState(true);
 
   return (
     <table className={styles.table}>
@@ -31,12 +27,14 @@ function ListWords(props) {
               <td className={styles.word}>{data.transcription}</td>
               <td className={styles.word}>{data.russian}</td>
               <td className={styles.word}>{data.tags}</td>
-              <td className={`${styles.button_block} ${styles.cool1}`}>
+              <td className={styles.button_block}>
                 <img
                   src={editIcon}
                   alt={"Редактировать"}
                   className={styles.image}
-                  onClick={edit}
+                  onClick={() => {
+                    editWord(false);
+                  }}
                 ></img>
                 <img
                   src={deleteIcon}
@@ -70,15 +68,16 @@ function ListWords(props) {
                 {props.tags}
               </input>
             </td>
-            <td className={`${styles.button_block} ${styles.cool1}`}>
-              <Button
-                button="Сохранить"
-                buttonStyle={styles.button_save}
-              ></Button>
-              <Button
-                button="Отмена"
-                buttonStyle={styles.button_cancel}
-              ></Button>
+            <td className={styles.button_block}>
+              <button className={styles.button_save}>"Сохранить"</button>
+              <button
+                className={styles.button_cancel}
+                onClick={() => {
+                  editWord(true);
+                }}
+              >
+                "Отмена"
+              </button>
             </td>
           </tr>
         </tbody>
@@ -86,5 +85,3 @@ function ListWords(props) {
     </table>
   );
 }
-
-export default ListWords;
