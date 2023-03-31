@@ -1,26 +1,23 @@
 import styles from "./wordCard.module.scss";
-import Button from "../common/button/Button";
 import { useState } from "react";
 
 export default function WordCard(props) {
-  const [pressed, setPressed] = useState(props.pressed || false);
-  const showTranslation = () => {
-    setPressed(!pressed);    
-  };
+  const [pressed, showTranslation] = useState(false);
 
   return (
     <div className={styles.card}>
-      <h2 className={styles.word}>{props.english}</h2>
+      <h2 className={styles.english}>{props.english}</h2>
       <div className={styles.transcription}>{props.transcription}</div>
       {pressed ? (
-        <h2 className={styles.word}>{props.russian}</h2>
+        <div>
+          <h2 className={styles.russian} onClick={() => showTranslation(false)}>
+            {props.russian}
+          </h2>
+        </div>
       ) : (
-        <Button
-          button="Показать перевод"
-          buttonStyle={styles.show}
-          pressed={pressed}
-          onClick={showTranslation}
-        ></Button>
+        <button className={styles.button} onClick={() => showTranslation(true)}>
+          Показать перевод
+        </button>
       )}
       <div className={styles.topic}>{props.tags}</div>
     </div>

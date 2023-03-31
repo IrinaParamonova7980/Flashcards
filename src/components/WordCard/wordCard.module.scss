@@ -2,38 +2,53 @@
 
 .card {
   width: 80%;
+  height: 320px;
   border-radius: 10px;
   border: 5px solid $colorBasic;
   box-shadow: 4px 7px 7px 6px rgba(238, 201, 57, 0.2);
 
-  @media (min-width: 768px) and (orientation: landscape){
+  @media (min-width: 768px) and (orientation: landscape) {
     width: 300px;
   }
 }
 
-.word {
+.english {
+  margin: 80px auto 5px auto;
   font-size: $fontWord;
   color: $textDark;
 }
 
 .transcription {
-  font-size: $fontBig;
-  padding-bottom: 20px;
-  }
+  font-size: $fontAverage;
+}
 
 .topic {
-  font-size: $fontSmall; 
-  padding-bottom: 10px; 
+  font-size: $fontSmall;
+  bottom: 10px;
 }
 
-.show {
-  border-color: $colorBasic;
-  margin: 10px;
+.button {
+  margin: 30px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: $fontTiny;
+  border-color: $colorBasic_transparent;
   background: $colorBasic;
   color: $textLight;
+  cursor: pointer;
 
   &:hover {
-    color: $colorThird;
+    font-weight: $fontWeightBold;
   }
 }
 
+.russian {
+  margin: 25px;
+  font-size: $fontBig;
+  color: $colorBasic;
+  cursor: pointer;
+
+  &:hover {
+    font-size: $fontWordSecond;
+  }
+}
