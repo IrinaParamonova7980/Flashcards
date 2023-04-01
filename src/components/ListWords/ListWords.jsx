@@ -7,6 +7,7 @@ import { useState } from "react";
 
 export default function ListWords() {
   const [editing, editWord] = useState(true);
+  //const [newword, editNewword] = useState('');
 
   return (
     <table className={styles.table}>
@@ -20,14 +21,55 @@ export default function ListWords() {
           <th></th>
         </tr>
       </thead>
-      {editing ? (
-        <tbody className={styles.body}>
-          {data.map((data) => (
-            <tr key={data.id}>
+      <tbody className={styles.body}>
+        {data.map((data) => (
+          <tr key={data.id}>
+            {editing ? (
               <td className={styles.word}>{data.english}</td>
+            ) : (
+              <td>
+                <input
+                  type="text"
+                  className={styles.input}
+                    defaultValue={data.english}
+                    //onChange={}
+                ></input>
+              </td>
+            )}
+            {editing ? (
               <td className={styles.word}>{data.transcription}</td>
+            ) : (
+              <td>
+                <input
+                  type="text"
+                  className={styles.input}
+                  defaultValue={data.transcription}
+                ></input>
+              </td>
+            )}
+            {editing ? (
               <td className={styles.word}>{data.russian}</td>
+            ) : (
+              <td>
+                <input
+                  type="text"
+                  className={styles.input}
+                  defaultValue={data.russian}
+                ></input>
+              </td>
+            )}
+            {editing ? (
               <td className={styles.word}>{data.tags}</td>
+            ) : (
+              <td>
+                <input
+                  type="text"
+                  className={styles.input}
+                  defaultValue={data.tags}
+                ></input>
+              </td>
+            )}
+            {editing ? (
               <td className={styles.button_block}>
                 <img
                   src={editIcon}
@@ -43,41 +85,7 @@ export default function ListWords() {
                   className={styles.image}
                 ></img>
               </td>
-            </tr>
-          ))}
-        </tbody>
-      ) : (
-        <tbody className={styles.body}>
-          {data.map((data) => (
-            <tr className={styles.input_block}>
-              <td>
-                <input
-                  type="text"
-                  className={styles.input}
-                  value={data.english}
-                ></input>
-              </td>
-              <td>
-                <input
-                  type="text"
-                  className={styles.input}
-                  value={data.transcription}
-                ></input>
-              </td>
-              <td>
-                <input
-                  type="text"
-                  className={styles.input}
-                  value={data.russian}
-                ></input>
-              </td>
-              <td>
-                <input
-                  type="text"
-                  className={styles.input}
-                  value={data.tags}
-                ></input>
-              </td>
+            ) : (
               <td className={styles.button_block}>
                 <Button
                   button="Сохранить"
@@ -91,10 +99,10 @@ export default function ListWords() {
                   }}
                 ></Button>
               </td>
-            </tr>
-          ))}
-        </tbody>
-      )}
+            )}
+          </tr>
+        ))}
+      </tbody>
     </table>
   );
 }
