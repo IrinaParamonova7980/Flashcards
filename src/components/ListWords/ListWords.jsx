@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export default function ListWords() {
   const [editing, editWord] = useState(true);
-  //const [newword, editNewword] = useState('');
+  const [userData, newValue] = useState(data);
 
   return (
     <table className={styles.table}>
@@ -22,7 +22,7 @@ export default function ListWords() {
         </tr>
       </thead>
       <tbody className={styles.body}>
-        {data.map((data) => (
+        {userData.map((data) => (
           <tr key={data.id}>
             {editing ? (
               <td className={styles.word}>{data.english}</td>
@@ -31,8 +31,20 @@ export default function ListWords() {
                 <input
                   type="text"
                   className={styles.input}
-                    defaultValue={data.english}
-                    //onChange={}
+                  value={data.english}
+                  onChange={(e) => newValue(e.target.value)}
+
+                  // onChange={newValue(
+                  //   userData.map((item) => (
+                  //     <td>
+                  //       <input
+                  //         type="text"
+                  //         className={styles.input}
+                  //         value={(e) => e.target.value}
+                  //       ></input>
+                  //     </td>
+                  //   ))
+                  // )}
                 ></input>
               </td>
             )}
@@ -106,3 +118,7 @@ export default function ListWords() {
     </table>
   );
 }
+
+// const handleClear = () =>  {
+//   newValue('')
+// }
