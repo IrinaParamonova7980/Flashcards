@@ -9,6 +9,24 @@ export default function ListWords() {
   const [editing, editWord] = useState(true);
   const [userData, newValue] = useState(data);
 
+  function cancelChanges() {
+    editWord(true);
+    handleClear();
+  }
+
+  function handleClear() {
+    const cancel = data.map((item) => {
+      return {
+        key: item.id,
+        english: item.english,
+        transcription: item.transcription,
+        russian: item.russian,
+        tags: item.tags,
+      };
+    });
+    newValue(cancel);
+  }
+
   function onChangeEnglish(e) {
     const changeWord = userData.map((item) => {
       return { ...item, english: (item.english = e.target.value) };
@@ -135,9 +153,7 @@ export default function ListWords() {
                 <Button
                   button="Отмена"
                   buttonstyle={styles.button_cancel}
-                  click={() => {
-                    editWord(true);
-                  }}
+                  onClick={cancelChanges}
                 ></Button>
               </td>
             )}
@@ -147,7 +163,3 @@ export default function ListWords() {
     </table>
   );
 }
-
-// const handleClear = () =>  {
-//   newValue('')
-// }
