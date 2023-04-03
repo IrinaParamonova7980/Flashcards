@@ -11,54 +11,39 @@ export default function ListWords() {
 
   function onChangeEnglish(e) {
     const changeWord = userData.map((item) => {
-      if (item.english) {
-        return { ...item, english: (item.english = e.target.value) };
-      } else {
-        return item;
-      }
+      return { ...item, english: (item.english = e.target.value) };
     });
     newValue(changeWord);
   }
 
   function onChangeTranscription(e) {
     const changeWord = userData.map((item) => {
-      if (item.transcription) {
-        return {
-          ...item,
-          transcription: (item.transcription = e.target.value),
-        };
-      } else {
-        return item;
-      }
+      return {
+        ...item,
+        transcription: (item.transcription = e.target.value),
+      };
     });
     newValue(changeWord);
   }
 
   function onChangeRussian(e) {
     const changeWord = userData.map((item) => {
-      if (item.russian) {
-        return {
-          ...item,
-          russian: (item.russian = e.target.value),
-        };
-      } else {
-        return item;
-      }
+      return {
+        ...item,
+        russian: (item.russian = e.target.value),
+      };
     });
     newValue(changeWord);
   }
 
   function onChangeTags(e) {
     const changeWord = userData.map((item) => {
-      if (item.tags) {
-        return {
-          ...item,
-          tags: (item.tags = e.target.value),
-        };
-      } else {
-        return item;
-      }
+      return {
+        ...item,
+        tags: (item.tags = e.target.value),
+      };
     });
+
     newValue(changeWord);
   }
 
