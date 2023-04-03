@@ -9,10 +9,52 @@ export default function ListWords() {
   const [editing, editWord] = useState(true);
   const [userData, newValue] = useState(data);
 
-  function onChangeWord(e) {
+  function onChangeEnglish(e) {
     const changeWord = userData.map((item) => {
       if (item.english) {
         return { ...item, english: (item.english = e.target.value) };
+      } else {
+        return item;
+      }
+    });
+    newValue(changeWord);
+  }
+
+  function onChangeTranscription(e) {
+    const changeWord = userData.map((item) => {
+      if (item.transcription) {
+        return {
+          ...item,
+          transcription: (item.transcription = e.target.value),
+        };
+      } else {
+        return item;
+      }
+    });
+    newValue(changeWord);
+  }
+
+  function onChangeRussian(e) {
+    const changeWord = userData.map((item) => {
+      if (item.russian) {
+        return {
+          ...item,
+          russian: (item.russian = e.target.value),
+        };
+      } else {
+        return item;
+      }
+    });
+    newValue(changeWord);
+  }
+
+  function onChangeTags(e) {
+    const changeWord = userData.map((item) => {
+      if (item.tags) {
+        return {
+          ...item,
+          tags: (item.tags = e.target.value),
+        };
       } else {
         return item;
       }
@@ -43,7 +85,7 @@ export default function ListWords() {
                   type="text"
                   className={styles.input}
                   value={data.english}
-                  onChange={onChangeWord}
+                  onChange={onChangeEnglish}
                 ></input>
               </td>
             )}
@@ -54,7 +96,8 @@ export default function ListWords() {
                 <input
                   type="text"
                   className={styles.input}
-                  defaultValue={data.transcription}
+                  value={data.transcription}
+                  onChange={onChangeTranscription}
                 ></input>
               </td>
             )}
@@ -65,7 +108,8 @@ export default function ListWords() {
                 <input
                   type="text"
                   className={styles.input}
-                  defaultValue={data.russian}
+                  value={data.russian}
+                  onChange={onChangeRussian}
                 ></input>
               </td>
             )}
@@ -76,7 +120,8 @@ export default function ListWords() {
                 <input
                   type="text"
                   className={styles.input}
-                  defaultValue={data.tags}
+                  value={data.tags}
+                  onChange={onChangeTags}
                 ></input>
               </td>
             )}
