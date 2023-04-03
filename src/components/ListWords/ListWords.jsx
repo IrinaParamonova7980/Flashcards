@@ -27,42 +27,58 @@ export default function ListWords() {
     newValue(cancel);
   }
 
-  function onChangeEnglish(e) {
-    const changeWord = userData.map((item) => {
-      return { ...item, english: (item.english = e.target.value) };
+  function onChangeEnglish(e, id) {
+    const changeWordEnglish = userData.map((item) => {
+      if (item.id === id) {
+        return { ...item, english: (item.english = e.target.value) };
+      } else {
+        return { ...item };
+      }
     });
-    newValue(changeWord);
+    newValue(changeWordEnglish);
   }
 
-  function onChangeTranscription(e) {
-    const changeWord = userData.map((item) => {
-      return {
-        ...item,
-        transcription: (item.transcription = e.target.value),
-      };
+  function onChangeTranscription(e, id) {
+    const changeWordTranscription = userData.map((item) => {
+      if (item.id === id) {
+        return {
+          ...item,
+          transcription: (item.transcription = e.target.value),
+        };
+      } else {
+        return { ...item };
+      }
     });
-    newValue(changeWord);
+    newValue(changeWordTranscription);
   }
 
-  function onChangeRussian(e) {
-    const changeWord = userData.map((item) => {
-      return {
-        ...item,
-        russian: (item.russian = e.target.value),
-      };
+  function onChangeRussian(e, id) {
+    const changeWordRussian = userData.map((item) => {
+      if (item.id === id) {
+        return {
+          ...item,
+          russian: (item.russian = e.target.value),
+        };
+      } else {
+        return { ...item };
+      }
     });
-    newValue(changeWord);
+    newValue(changeWordRussian);
   }
 
-  function onChangeTags(e) {
-    const changeWord = userData.map((item) => {
-      return {
-        ...item,
-        tags: (item.tags = e.target.value),
-      };
+  function onChangeTags(e, id) {
+    const changeWordTags = userData.map((item) => {
+      if (item.id === id) {
+        return {
+          ...item,
+          tags: (item.tags = e.target.value),
+        };
+      } else {
+        return { ...item };
+      }
     });
 
-    newValue(changeWord);
+    newValue(changeWordTags);
   }
 
   return (
@@ -88,7 +104,7 @@ export default function ListWords() {
                   type="text"
                   className={styles.input}
                   value={data.english}
-                  onChange={onChangeEnglish}
+                  onChange={(e) => onChangeEnglish(e, data.id)}
                 ></input>
               </td>
             )}
@@ -100,7 +116,7 @@ export default function ListWords() {
                   type="text"
                   className={styles.input}
                   value={data.transcription}
-                  onChange={onChangeTranscription}
+                  onChange={(e) => onChangeTranscription(e, data.id)}
                 ></input>
               </td>
             )}
@@ -112,7 +128,7 @@ export default function ListWords() {
                   type="text"
                   className={styles.input}
                   value={data.russian}
-                  onChange={onChangeRussian}
+                  onChange={(e) => onChangeRussian(e, data.id)}
                 ></input>
               </td>
             )}
@@ -124,7 +140,7 @@ export default function ListWords() {
                   type="text"
                   className={styles.input}
                   value={data.tags}
-                  onChange={onChangeTags}
+                  onChange={(e) => onChangeTags(e, data.id)}
                 ></input>
               </td>
             )}
