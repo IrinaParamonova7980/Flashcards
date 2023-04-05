@@ -24,61 +24,18 @@ export default function ListWords() {
         tags: item.tags,
       };
     });
-        newValue(cancel);
+    newValue(cancel);
   }
 
-  function onChangeEnglish(e, id, field) {
-    const changeWordEnglish = userData.map((item) => {
+  function onChangeWord(e, id, field) {
+    const changeWord = userData.map((item) => {
       if (item.id === id) {
         return { ...item, [field]: (item[field] = e.target.value) };
       } else {
         return { ...item };
       }
     });
-    newValue(changeWordEnglish);
-  }
-
-  function onChangeTranscription(e, id) {
-    const changeWordTranscription = userData.map((item) => {
-      if (item.id === id) {
-        return {
-          ...item,
-          transcription: (item.transcription = e.target.value),
-        };
-      } else {
-        return { ...item };
-      }
-    });
-    newValue(changeWordTranscription);
-  }
-
-  function onChangeRussian(e, id) {
-    const changeWordRussian = userData.map((item) => {
-      if (item.id === id) {
-        return {
-          ...item,
-          russian: (item.russian = e.target.value),
-        };
-      } else {
-        return { ...item };
-      }
-    });
-    newValue(changeWordRussian);
-  }
-
-  function onChangeTags(e, id) {
-    const changeWordTags = userData.map((item) => {
-      if (item.id === id) {
-        return {
-          ...item,
-          tags: (item.tags = e.target.value),
-        };
-      } else {
-        return { ...item };
-      }
-    });
-
-    newValue(changeWordTags);
+    newValue(changeWord);
   }
 
   return (
@@ -104,7 +61,7 @@ export default function ListWords() {
                   type="text"
                   className={styles.input}
                   value={data.english}
-                  onChange={(e) => onChangeEnglish(e, data.id, 'english')}
+                  onChange={(e) => onChangeWord(e, data.id, "english")}
                 ></input>
               </td>
             )}
@@ -116,7 +73,7 @@ export default function ListWords() {
                   type="text"
                   className={styles.input}
                   value={data.transcription}
-                  onChange={(e) => onChangeTranscription(e, data.id)}
+                  onChange={(e) => onChangeWord(e, data.id, "transcription")}
                 ></input>
               </td>
             )}
@@ -128,7 +85,7 @@ export default function ListWords() {
                   type="text"
                   className={styles.input}
                   value={data.russian}
-                  onChange={(e) => onChangeRussian(e, data.id)}
+                  onChange={(e) => onChangeWord(e, data.id, "russian")}
                 ></input>
               </td>
             )}
@@ -140,7 +97,7 @@ export default function ListWords() {
                   type="text"
                   className={styles.input}
                   value={data.tags}
-                  onChange={(e) => onChangeTags(e, data.id)}
+                  onChange={(e) => onChangeWord(e, data.id, "tags")}
                 ></input>
               </td>
             )}

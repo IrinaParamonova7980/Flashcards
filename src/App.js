@@ -1,10 +1,10 @@
 import data from "./data.json";
 import "./App.css";
 import ListWords from "./components/listWords/ListWords";
-//import Footer from "./components/footer/Footer";
+import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
-//import WordCard from "./components/wordCard/WordCard";
-//import FlippingCards from "./components/flippingCards/FlippingCards";
+import WordCard from "./components/wordCard/WordCard";
+import FlippingCards from "./components/flippingCards/FlippingCards";
 
 function App() {
   return (
@@ -16,8 +16,10 @@ function App() {
         <section>
           <ListWords></ListWords>
         </section>
-        <section>{/* <FlippingCards></FlippingCards> */}</section>
-        {/* <div>
+        <section>
+          <FlippingCards></FlippingCards>
+        </section>
+        <div>
           {data.map((data) => (
             <WordCard
               english={data.english}
@@ -27,9 +29,11 @@ function App() {
               key={data.id}
             ></WordCard>
           ))}
-        </div> */}
+        </div>
       </main>
-      <footer>{/* <Footer></Footer> */}</footer>
+      <footer>
+        <Footer></Footer>
+      </footer>
     </div>
   );
 }
