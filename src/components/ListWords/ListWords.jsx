@@ -17,20 +17,20 @@ export default function ListWords() {
   function handleClear() {
     const cancel = data.map((item) => {
       return {
-        key: item.id,
+        id: item.id,
         english: item.english,
         transcription: item.transcription,
         russian: item.russian,
         tags: item.tags,
       };
     });
-    newValue(cancel);
+        newValue(cancel);
   }
 
-  function onChangeEnglish(e, id) {
+  function onChangeEnglish(e, id, field) {
     const changeWordEnglish = userData.map((item) => {
       if (item.id === id) {
-        return { ...item, english: (item.english = e.target.value) };
+        return { ...item, [field]: (item[field] = e.target.value) };
       } else {
         return { ...item };
       }
@@ -104,7 +104,7 @@ export default function ListWords() {
                   type="text"
                   className={styles.input}
                   value={data.english}
-                  onChange={(e) => onChangeEnglish(e, data.id)}
+                  onChange={(e) => onChangeEnglish(e, data.id, 'english')}
                 ></input>
               </td>
             )}
