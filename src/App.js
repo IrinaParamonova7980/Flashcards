@@ -4,6 +4,7 @@ import ListWords from "./components/listWords/ListWords";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import WordCard from "./components/wordCard/WordCard";
+import FlippingCards from "./components/flippingCards/FlippingCards";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
       <main>
         <section>
           <ListWords></ListWords>
+        </section>
+        <section>
+          <FlippingCards></FlippingCards>
         </section>
         <div>
           {data.map((data) => (
