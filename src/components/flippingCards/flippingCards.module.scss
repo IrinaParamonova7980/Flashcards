@@ -63,9 +63,37 @@
 
 .prev,
 .next {
-  padding: 5px;
-  height: 25px;
+  position: absolute;
+  top: 200px;
+  transform: translateY(-50%);
+  background: var(--clr-grey-5);
+  color: var(--clr-white);
+  width: 1.25rem;
+  height: 1.25rem;
+  display: grid;
+  place-items: center;
+  border-color: transparent;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
 }
+.prev:hover,
+.next:hover {
+  background: var(--clr-primary-5);
+}
+.prev {
+  left: 0;
+}
+.next {
+  right: 0;
+}
+
+// .prev,
+// .next {
+//   padding: 5px;
+//   height: 25px;
+// }
 
 article {
   position: absolute;
@@ -76,13 +104,13 @@ article {
   opacity: 0;
   transition: var(--transition);
 }
-.activeSlide {
+article.activeSlide {
   opacity: 1;
   transform: translateX(0);
 }
-.lastSlide {
+article.lastSlide {
   transform: translateX(-100%);
 }
-.nextSlide {
+article.nextSlide {
   transform: translateX(100%);
 }
