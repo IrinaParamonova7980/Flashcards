@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import styles from "./flippingCards.module.scss";
-//import WordCart from "../wordCard/WordCard";
+//import forward from "../assets/forward.svg";
+//import back from "../assets/back.svg";
 import data from "../../data.json";
 import { useEffect } from "react";
+import WordCard from "../wordCard/WordCard";
 
 export default function FlippingCards() {
   const [cards, setCard] = useState(data);
@@ -34,14 +36,13 @@ export default function FlippingCards() {
 
         return (
           <article className={styles[position]} key={id}>
-            <div>
-              <h2>{english}</h2>
-              <div>{transcription}</div>
-              <div>
-                <h2>{russian}</h2>
-              </div>
-              <div>{tags}</div>
-            </div>
+            <WordCard
+              english={english}
+              transcription={transcription}
+              russian={russian}
+              tags={tags}
+              key={id}
+            ></WordCard>
           </article>
         );
       })}
@@ -61,33 +62,3 @@ export default function FlippingCards() {
     </div>
   );
 }
-
-// export default function FlippingCards(props) {
-//   const [count, setCount] = useState(0);
-//   const { ...itemProps } = props;
-
-//    return (
-//     <>
-//       <div className={styles.container}>
-//         <button onClick={() => setCount(count - 1)} className={styles.button}>
-//           Назад
-//         </button>
-//         <div>
-//           {data.map((data) => (
-//             <WordCart key={data.id} {...itemProps}>
-//               english={data.english}
-//               transcription={data.transcription}
-//               russian={data.russian}
-//               tags={data.tags}
-//             </WordCart>
-//           ))}
-//         </div>
-//         <button onClick={() => setCount(count + 1)} className={styles.button}>
-//           Вперед
-//         </button>
-//       </div>
-//     </>
-//   );
-// }
-
-// ||(index === 0 && cardIndex === card.length - 1)
