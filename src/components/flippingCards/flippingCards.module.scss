@@ -39,15 +39,15 @@
   --fixed-width: 620px;
 }
 
-.section {
-  width: 90vw;
-  margin: 5rem auto;
-  max-width: var(--max-width);
+// .section {
+//   width: 90vw;
+//   margin: 5rem auto;
+//   max-width: var(--max-width);
 
-  @media screen and (min-width: 992px){
-    width: 95vw;
-  }
-}
+//   @media screen and (min-width: 992px) {
+//     width: 95vw;
+//   }
+// }
 
 .section_center {
   margin: 0 auto;

@@ -5,65 +5,59 @@ import data from "../../data.json";
 import { useEffect } from "react";
 
 export default function FlippingCards() {
-  const [card, setCard] = useState(data);
+  const [cards, setCard] = useState(data);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const lastIndex = card.length - 1;
+    const lastIndex = cards.length - 1;
     if (index < 0) {
       setIndex(lastIndex);
     }
     if (index > lastIndex) {
       setIndex(0);
     }
-  }, [index, card]);
+  }, [index, cards]);
 
   return (
-    <div className={styles.section}>
-      <div className={styles.section_center}>
-        <button
-          className={styles.prev}
-          onClick={() => setIndex((prevState) => prevState - 1)}
-        >
-          Назад
-        </button>
+    <div className={styles.section_center}>
+      {cards.map((card, cardIndex) => {
+        const { id, english, transcription, russian, tags } = card;
 
-        {card.map((person, personIndex) => {
-          const { id, english, transcription, russian, tags } = person;
+        let position = "nextSlide";
+        if (cardIndex === index) {
+          position = "activeSlide";
+        }
 
-          let position = "styles.nextSlide";
-          if (personIndex === index) {
-            position = "styles.activeSlide";
-          }
+        if (cardIndex === index - 1) {
+          position = "lastSlide";
+        }
 
-          if (
-            personIndex === index - 1 ||
-            (index === 0 && personIndex === card.length - 1)
-          ) {
-            position = "styles.lastSlide";
-          }
-
-          return (
-            <article className={position} key={id}>
+        return (
+          <article className={styles[position]} key={id}>
+            <div>
+              <h2>{english}</h2>
+              <div>{transcription}</div>
               <div>
-                <h2>{english}</h2>
-                <div>{transcription}</div>
-                <div>
-                  <h2>{russian}</h2>
-                </div>
-                <div>{tags}</div>
+                <h2>{russian}</h2>
               </div>
-            </article>
-          );
-        })}
+              <div>{tags}</div>
+            </div>
+          </article>
+        );
+      })}
 
-        <button
-          className={styles.next}
-          onClick={() => setIndex((prevState) => prevState + 1)}
-        >
-          Вперед
-        </button>
-      </div>
+      <button
+        className={styles.prev}
+        onClick={() => setIndex((prevState) => prevState - 1)}
+      >
+        Назад
+      </button>
+      <button
+        className={styles.next}
+        onClick={() => setIndex((prevState) => prevState + 1)}
+      >
+        Вперед
+      </button>
     </div>
   );
 }
@@ -95,3 +89,5 @@ export default function FlippingCards() {
 //     </>
 //   );
 // }
+
+// ||(index === 0 && cardIndex === card.length - 1)
