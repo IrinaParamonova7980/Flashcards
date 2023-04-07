@@ -19,7 +19,7 @@ export default function WordCard(props) {
         <Button
           button="Показать перевод"
           buttonstyle={styles.button}
-          click={() => showTranslation(true)}
+          onClick={() => showTranslation(true)}
         ></Button>
       )}
       <div className={styles.topic}>{props.tags}</div>
