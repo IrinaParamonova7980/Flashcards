@@ -15,7 +15,7 @@ export default function App() {
           <ListWords></ListWords>
         </section>
         <section>
-          <FlippingCards></FlippingCards>
+          <FlippingCards index={0}></FlippingCards>
         </section>
       </main>
       <footer>

@@ -6,24 +6,23 @@ import data from "../../data.json";
 import { useEffect } from "react";
 import WordCard from "../wordCard/WordCard";
 
-export default function FlippingCards() {
-  const [cards, setCard] = useState(data);
-  const [index, setIndex] = useState(0);
+export default function FlippingCards(prop) {
+  const [index, setIndex] = useState(prop.index||0);
 
   useEffect(() => {
-    const lastIndex = cards.length - 1;
+    const lastIndex = data.length - 1;
     if (index < 0) {
       setIndex(lastIndex);
     }
     if (index > lastIndex) {
       setIndex(0);
     }
-  }, [index, cards]);
+  }, [index, data]);
 
   return (
     <div className={styles.section_center}>
-      {cards.map((card, cardIndex) => {
-        const { id, english, transcription, russian, tags } = card;
+      {data.map((card, cardIndex) => {
+        const { id, ...props } = card;
 
         let position = "nextSlide";
         if (cardIndex === index) {
@@ -36,13 +35,7 @@ export default function FlippingCards() {
 
         return (
           <article className={styles[position]} key={id}>
-            <WordCard
-              english={english}
-              transcription={transcription}
-              russian={russian}
-              tags={tags}
-              key={id}
-            ></WordCard>
+            <WordCard key={id} {...props}></WordCard>
           </article>
         );
       })}

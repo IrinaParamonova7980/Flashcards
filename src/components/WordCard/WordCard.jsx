@@ -26,3 +26,10 @@ export default function WordCard(props) {
     </div>
   );
 }
+
+WordCard.defaultProps = {
+  english: "Слово не определено",
+  transcription: "",
+  russian: "Слово не определено",
+  tags: "",
+};
