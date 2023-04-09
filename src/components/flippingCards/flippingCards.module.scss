@@ -13,26 +13,28 @@
 .prev,
 .next {
   position: absolute;
+  width: 25px;
   top: 160px;
   transform: translateY(-50%);
-  // display: flex;
-  // place-items: center;
   cursor: pointer;
   transition: $transition;
 }
+
 .prev:hover,
 .next:hover {
   background: $colorSecond;
 }
+
 .prev {
   left: 0px;
 }
+
 .next {
   right: 0;
 }
 
 article {
-  position: absolute;
+  position: absolute;  
   top: 0;
   left: 0;
   width: 100%;
@@ -40,15 +42,18 @@ article {
   opacity: 0;
   transition: $transition;
 }
+
 article.activeSlide {
   display: flex;
   justify-content: center;
   opacity: 1;
   transform: translateX(0);
 }
+
 article.lastSlide {
   transform: translateX(-100%);
 }
+
 article.nextSlide {
   transform: translateX(100%);
 }

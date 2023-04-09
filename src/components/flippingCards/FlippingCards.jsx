@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./flippingCards.module.scss";
-//import forward from "../assets/forward.svg";
-//import back from "../assets/back.svg";
+import forward from "../assets/forward.svg";
+import back from "../assets/back.svg";
 import data from "../../data.json";
 import { useEffect } from "react";
 import WordCard from "../wordCard/WordCard";
@@ -47,18 +47,19 @@ export default function FlippingCards() {
         );
       })}
 
-      <button
+      <img
+        src={back}
+        alt={"Назад"}
         className={styles.prev}
         onClick={() => setIndex((prevState) => prevState - 1)}
-      >
-        Назад
-      </button>
-      <button
+      ></img>
+
+      <img
+        src={forward}
+        alt={"Вперед"}
         className={styles.next}
         onClick={() => setIndex((prevState) => prevState + 1)}
-      >
-        Вперед
-      </button>
+      ></img>
     </div>
   );
 }
