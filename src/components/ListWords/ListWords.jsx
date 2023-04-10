@@ -129,6 +129,7 @@ export default function ListWords() {
                   src={cancelIcon}
                   alt={"Отменить"}
                   className={styles.image}
+                  onClick={cancelChanges}
                 ></img>
               </td>
             )}
