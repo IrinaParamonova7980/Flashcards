@@ -3,9 +3,8 @@
 .section_center {
   margin: 0 auto;
   margin-top: 4rem;
-  width: 450px;
   height: 400px;
-  max-width: 800px;
+  max-width: 450px;
   position: relative;
   overflow: hidden;
 }
@@ -34,7 +33,7 @@
 }
 
 article {
-  position: absolute;  
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;

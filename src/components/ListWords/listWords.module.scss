@@ -1,16 +1,24 @@
 @import "./../variables.scss";
 
 .table {
-  width: 100%;
+  width: 100vw;
   border-collapse: collapse;
-  font-size: $fontAverage;
+  font-size: $fontSmall;
+
+  @media (min-width: 768px) {
+    font-size: $fontAverage;
+  }
 }
 
 th,
 td {
   width: 20%;
-  padding: 5px;
+  padding: 1px;
   border: 2px solid $colorSecond;
+
+  @media (min-width: 768px) {
+    padding: 5px;
+  }
 }
 
 .thead {
@@ -26,16 +34,33 @@ td {
   font-weight: $fontWeightBold;
 }
 
+.input {
+  font-weight: 400;
+
+  @media (min-width: 768px) {
+    font-weight: $fontWeightBold;
+  }
+}
+
 .heading {
   padding: 5px;
 }
 
 .image {
-  width: 20px;
-  padding: 0 7px;
+  width: 15px;
+  padding: 2px;
 
   &:hover {
-    width: 22px;
+    width: 18px;
+  }
+
+  @media (min-width: 768px) {
+    width: 20px;
+    padding: 0 7px;
+
+    &:hover {
+      width: 22px;
+    }
   }
 }
 
@@ -45,13 +70,17 @@ td {
 
 .input {
   width: 90%;
-  padding: 4px;
+  padding: 2px;
   border: 1px solid $colorSecond;
   font-size: $fontSmall;
   outline: none;
 
   &:focus {
     border: 1px solid $colorBasic;
+  }
+
+  @media (min-width: 768px) {
+    padding: 4px;
   }
 }
 

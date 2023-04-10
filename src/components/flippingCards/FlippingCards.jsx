@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import WordCard from "../wordCard/WordCard";
 
 export default function FlippingCards(prop) {
-  const [index, setIndex] = useState(prop.index||0);
+  const [index, setIndex] = useState(prop.index || 0);
 
   useEffect(() => {
     const lastIndex = data.length - 1;
@@ -17,7 +17,7 @@ export default function FlippingCards(prop) {
     if (index > lastIndex) {
       setIndex(0);
     }
-  }, [index, data]);
+  }, [index]);
 
   return (
     <div className={styles.section_center}>

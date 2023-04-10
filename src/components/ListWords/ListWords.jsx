@@ -1,8 +1,9 @@
 import styles from "./listWords.module.scss";
 import data from "../../data.json";
+import saveIcon from "../assets/save.svg";
+import cancelIcon from "../assets/cancel.svg";
 import editIcon from "../assets/edit.png";
 import deleteIcon from "../assets/delete.png";
-import Button from "../common/button/Button";
 import { useState } from "react";
 
 export default function ListWords() {
@@ -119,15 +120,16 @@ export default function ListWords() {
               </td>
             ) : (
               <td className={styles.button_block}>
-                <Button
-                  button="Сохранить"
-                  buttonstyle={styles.button_save}
-                ></Button>
-                <Button
-                  button="Отмена"
-                  buttonstyle={styles.button_cancel}
-                  onClick={cancelChanges}
-                ></Button>
+                <img
+                  src={saveIcon}
+                  alt={"Сохранить"}
+                  className={styles.image}
+                ></img>
+                <img
+                  src={cancelIcon}
+                  alt={"Отменить"}
+                  className={styles.image}
+                ></img>
               </td>
             )}
           </tr>
