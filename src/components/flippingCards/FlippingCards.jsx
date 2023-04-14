@@ -20,39 +20,44 @@ export default function FlippingCards(prop) {
   }, [index]);
 
   return (
-    <div className={styles.section_center}>
-      {data.map((card, cardIndex) => {
-        const { id, ...props } = card;
+    <>
+      <div className={styles.section_center}>
+        {data.map((card, cardIndex) => {
+          const { id, ...props } = card;
 
-        let position = "nextSlide";
-        if (cardIndex === index) {
-          position = "activeSlide";
-        }
+          let position = "nextSlide";
+          if (cardIndex === index) {
+            position = "activeSlide";
+          }
 
-        if (cardIndex === index - 1) {
-          position = "lastSlide";
-        }
+          if (cardIndex === index - 1) {
+            position = "lastSlide";
+          }
 
-        return (
-          <article className={styles[position]} key={id}>
-            <WordCard key={id} {...props}></WordCard>
-          </article>
-        );
-      })}
+          return (
+            <article className={styles[position]} key={id}>
+              <WordCard key={id} {...props}></WordCard>
+            </article>
+          );
+        })}
 
-      <img
-        src={back}
-        alt={"Назад"}
-        className={styles.prev}
-        onClick={() => setIndex((prevState) => prevState - 1)}
-      ></img>
+        <img
+          src={back}
+          alt={"Назад"}
+          className={styles.prev}
+          onClick={() => setIndex((prevState) => prevState - 1)}
+        ></img>
 
-      <img
-        src={forward}
-        alt={"Вперед"}
-        className={styles.next}
-        onClick={() => setIndex((prevState) => prevState + 1)}
-      ></img>
-    </div>
+        <img
+          src={forward}
+          alt={"Вперед"}
+          className={styles.next}
+          onClick={() => setIndex((prevState) => prevState + 1)}
+        ></img>
+      </div>
+      <div className={styles.numberCard}>
+        {index + 1} / {data.length}
+      </div>
+    </>
   );
 }

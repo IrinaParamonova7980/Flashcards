@@ -3,7 +3,7 @@
 .section_center {
   margin: 0 auto;
   margin-top: 4rem;
-  height: 400px;
+  height: 350px;
   max-width: 450px;
   position: relative;
   overflow: hidden;
@@ -55,4 +55,10 @@ article.lastSlide {
 
 article.nextSlide {
   transform: translateX(100%);
+}
+
+.numberCard {
+  margin-bottom: 15px;
+  font-size: $fontAverage;
+  font-weight: $fontWeightBold;
 }
