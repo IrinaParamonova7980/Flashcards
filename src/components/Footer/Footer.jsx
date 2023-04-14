@@ -1,5 +1,5 @@
 import styles from "./footer.module.scss";
-import logo from "./../assets/logo.png";
+import logo from "./../assets/logo.svg";
 
 function Footer() {
   return (
@@ -9,8 +9,12 @@ function Footer() {
         <div className={styles.name}>FleshCards</div>
       </div>
       <div className={styles.links_block}>
-        <a href="" className={styles.text}>Учить</a>
-        <a href="" className={styles.text}>Добавить слова</a>
+        <a href="" className={styles.text}>
+          Учить
+        </a>
+        <a href="" className={styles.text}>
+          Добавить слова
+        </a>
       </div>
     </div>
   );

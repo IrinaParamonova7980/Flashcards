@@ -2,8 +2,8 @@ import styles from "./listWords.module.scss";
 import data from "../../data.json";
 import saveIcon from "../assets/save.svg";
 import cancelIcon from "../assets/cancel.svg";
-import editIcon from "../assets/edit.png";
-import deleteIcon from "../assets/delete.png";
+import editIcon from "../assets/edit.svg";
+import deleteIcon from "../assets/delete.svg";
 import { useState } from "react";
 
 export default function ListWords() {
