@@ -45,7 +45,7 @@ export default function ListWords() {
       <thead className={styles.thead}>
         <tr>
           <th>Слово</th>
-          <th>Транскрипция</th>
+          <th>[...]</th>
           <th>Перевод</th>
           <th>Тема</th>
           <th></th>
