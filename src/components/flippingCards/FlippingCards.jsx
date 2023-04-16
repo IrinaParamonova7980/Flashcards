@@ -45,14 +45,14 @@ export default function FlippingCards(prop) {
           src={back}
           alt={"Назад"}
           className={styles.prev}
-          onClick={() => setIndex((prevState) => prevState - 1)}
+          onClick={() => setIndex(() => index - 1)}
         ></img>
 
         <img
           src={forward}
           alt={"Вперед"}
           className={styles.next}
-          onClick={() => setIndex((prevState) => prevState + 1)}
+          onClick={() => setIndex(() => index + 1)}
         ></img>
       </div>
       <div className={styles.numberCard}>
