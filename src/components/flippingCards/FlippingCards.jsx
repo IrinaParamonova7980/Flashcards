@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import styles from "./flippingCards.module.scss";
 import forward from "../assets/forward.svg";
 import back from "../assets/back.svg";
@@ -8,6 +8,9 @@ import WordCard from "../wordCard/WordCard";
 
 export default function FlippingCards(prop) {
   const [index, setIndex] = useState(prop.index || 0);
+
+  const clickButtonBack = useCallback(() => setIndex(() => index - 1), [index]);
+  const clickButtonForward = useCallback(() => setIndex(() => index + 1), [index]);
 
   useEffect(() => {
     const lastIndex = data.length - 1;
@@ -45,14 +48,14 @@ export default function FlippingCards(prop) {
           src={back}
           alt={"Назад"}
           className={styles.prev}
-          onClick={() => setIndex(() => index - 1)}
+          onClick={clickButtonBack}
         ></img>
 
         <img
           src={forward}
           alt={"Вперед"}
           className={styles.next}
-          onClick={() => setIndex(() => index + 1)}
+          onClick={clickButtonForward}
         ></img>
       </div>
       <div className={styles.numberCard}>
