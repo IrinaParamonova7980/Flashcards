@@ -1,5 +1,6 @@
 import styles from "./footer.module.scss";
 import logo from "./../assets/logo.svg";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -8,13 +9,11 @@ export default function Footer() {
         <img src={logo} className={styles.logo} alt={"FleshCards"}></img>
         <div className={styles.name}>FleshCards</div>
       </div>
-      <div className={styles.links_block}>
-        <a href="" className={styles.text}>
+      <div>
+        <Link to="/game" className={styles.text}>
           Учить
-        </a>        
+        </Link>
       </div>
     </div>
   );
 }
-
-

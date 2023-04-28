@@ -1,0 +1,67 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.logo_block {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  padding: 5px;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(0, 128, 0);
+  text-decoration: none;
+}
+
+.links_block li {
+  list-style-type: none;
+  display: inline-block;
+  margin: auto;
+}
+
+.enter,
+.registration {
+  border-color: rgb(255, 165, 0);
+}
+.enter:hover,
+.registration:hover {
+  color: rgb(240, 103, 125);
+}
+
+.enter {
+  background: rgb(255, 255, 255);
+  color: rgb(255, 165, 0);
+}
+
+.registration {
+  margin: 0 10px;
+  background: rgb(255, 165, 0);
+  color: rgb(255, 255, 255);
+}
+
+.text {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(255, 165, 0);
+  padding: 0 20px;
+  cursor: pointer;
+  text-decoration: none;
+  border: 2px solid rgb(255, 255, 255);
+}
+.text:hover {
+  border-color: rgb(255, 165, 0);
+  border-radius: 10px;
+}/*# sourceMappingURL=header.module.css.map */

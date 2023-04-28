@@ -1,0 +1,47 @@
+.card {
+  width: 70%;
+  height: 320px;
+  border-radius: 10px;
+  border: 5px solid rgb(255, 165, 0);
+  box-shadow: 4px 7px 7px 6px rgba(238, 201, 57, 0.2);
+}
+@media (min-width: 768px) and (orientation: landscape) {
+  .card {
+    width: 300px;
+  }
+}
+
+.english {
+  margin: 80px auto 5px auto;
+  font-size: 50px;
+  color: rgb(72, 69, 69);
+}
+
+.transcription {
+  font-size: 20px;
+}
+
+.topic {
+  font-size: 16px;
+  bottom: 10px;
+}
+
+.button {
+  margin: 30px;
+  border-color: rgba(255, 165, 0, 0.2);
+  background: rgb(255, 165, 0);
+  color: rgb(255, 255, 255);
+}
+.button:hover {
+  font-weight: 600;
+}
+
+.russian {
+  margin: 25px;
+  font-size: 30px;
+  color: rgb(255, 165, 0);
+  cursor: pointer;
+}
+.russian:hover {
+  font-size: 32px;
+}/*# sourceMappingURL=wordCard.module.css.map */

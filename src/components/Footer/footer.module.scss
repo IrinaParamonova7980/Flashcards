@@ -9,11 +9,6 @@
   background-color: $textDark;
 }
 
-.logo_block {
-  display: flex;
-  align-items: center;
-}
-
 .logo {
   width: 50px;
   padding: 5px;
@@ -35,7 +30,8 @@
   font-weight: $fontWeightBold;
   color: $colorThird;
   padding: 5px 10px;
-    cursor: pointer;
+  cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     color: $textLight;

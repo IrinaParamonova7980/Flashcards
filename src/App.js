@@ -3,25 +3,14 @@ import ListWords from "./components/listWords/ListWords";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import FlippingCards from "./components/flippingCards/FlippingCards";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function App() {
   return (
     <Router>
       <div className="App">
         <header>
-        <nav>
-            <ul>
-              <li>
-                <Link to="/">Главная</Link>
-              </li>
-              <li>
-                <Link to="/game">Учить</Link>
-              </li>
-            </ul>
-          </nav>
           <Header></Header>
-          
         </header>
 
         <main>

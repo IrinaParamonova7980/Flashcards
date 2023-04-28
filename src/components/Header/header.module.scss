@@ -6,6 +6,11 @@
   justify-content: space-between;
 }
 
+.nav {
+  display: flex;
+  align-items: center;
+}
+
 .logo_block {
   display: flex;
   align-items: center;
@@ -20,6 +25,13 @@
   font-size: $fontAverage;
   font-weight: $fontWeightBold;
   color: $colorFourth;
+  text-decoration: none;
+}
+
+.links_block li {
+  list-style-type: none;
+  display: inline-block;
+  margin: auto;
 }
 
 .enter,
@@ -40,4 +52,19 @@
   margin: 0 10px;
   background: $colorBasic;
   color: $textLight;
+}
+
+.text {
+  font-size: $fontSmall;
+  font-weight: $fontWeightBold;
+  color: $colorBasic;
+  padding: 0 20px;
+  cursor: pointer;
+  text-decoration: none;
+  border: 2px solid $textLight;
+
+  &:hover {
+    border-color: $colorBasic;
+    border-radius: 10px;
+  }
 }

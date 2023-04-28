@@ -1,0 +1,62 @@
+.section_center {
+  margin: 0 auto;
+  margin-top: 4rem;
+  height: 350px;
+  max-width: 450px;
+  position: relative;
+  overflow: hidden;
+}
+
+.prev,
+.next {
+  position: absolute;
+  width: 25px;
+  top: 160px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.prev:hover,
+.next:hover {
+  background: rgb(211, 211, 211);
+}
+
+.prev {
+  left: 5px;
+}
+
+.next {
+  right: 5px;
+}
+
+article {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.3s linear;
+}
+
+article.activeSlide {
+  display: flex;
+  justify-content: center;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+article.lastSlide {
+  transform: translateX(-100%);
+}
+
+article.nextSlide {
+  transform: translateX(100%);
+}
+
+.numberCard {
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 600;
+}/*# sourceMappingURL=flippingCards.module.css.map */
