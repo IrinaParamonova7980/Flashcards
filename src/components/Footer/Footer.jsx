@@ -1,7 +1,7 @@
 import styles from "./footer.module.scss";
 import logo from "./../assets/logo.svg";
 
-function Footer() {
+export default function Footer() {
   return (
     <div className={styles.footer}>
       <div className={styles.logo_block}>
@@ -11,13 +11,10 @@ function Footer() {
       <div className={styles.links_block}>
         <a href="" className={styles.text}>
           Учить
-        </a>
-        <a href="" className={styles.text}>
-          Добавить слова
-        </a>
+        </a>        
       </div>
     </div>
   );
 }
 
-export default Footer;
+

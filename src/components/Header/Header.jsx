@@ -2,7 +2,7 @@ import styles from "./header.module.scss";
 import logo from "./../assets/logo.svg";
 import Button from "../common/button/Button";
 
-function Header() {
+export default function Header() {
   return (
     <div className={styles.header}>
       <div className={styles.logo_block}>
@@ -16,5 +16,3 @@ function Header() {
     </div>
   );
 }
-
-export default Header;
