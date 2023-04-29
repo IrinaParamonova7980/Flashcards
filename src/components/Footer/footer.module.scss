@@ -2,23 +2,37 @@
 
 .footer {
   display: flex;
-  padding: 15px;
+  padding: 10px 5px;
   align-items: center;
-  justify-content: space-between;
-  border-bottom: 2px solid $colorBasic;
-  background-color: $textDark;
+  justify-content: space-between; 
+  border-top: 2px solid $colorSecond;
+  }
+
+.logo_block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
 }
 
 .logo {
   width: 50px;
   padding: 5px;
+
+  @media (min-width: 768px) {
+    padding: 10px;
+  }
+
 }
 
 .name {
   display: none;
   font-size: $fontAverage;
   font-weight: $fontWeightBold;
-  color: $textLight;
+  color: $colorFourth;
 
   @media (min-width: 768px) {
     display: block;
@@ -28,12 +42,16 @@
 .text {
   font-size: $fontSmall;
   font-weight: $fontWeightBold;
-  color: $colorThird;
+  color: $textDark;
   padding: 5px 10px;
   cursor: pointer;
   text-decoration: none;
 
   &:hover {
-    color: $textLight;
+    text-decoration: underline;
+  }
+
+  @media (min-width: 768px) {
+    font-size: $fontAverage;
   }
 }

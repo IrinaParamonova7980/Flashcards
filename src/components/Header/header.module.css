@@ -16,20 +16,33 @@
 
 .logo {
   width: 50px;
-  padding: 5px;
+  padding: 10px;
 }
 
 .name {
+  display: none;
   font-size: 20px;
   font-weight: 600;
   color: rgb(0, 128, 0);
-  text-decoration: none;
+}
+@media (min-width: 768px) {
+  .name {
+    display: block;
+  }
 }
 
 .links_block li {
   list-style-type: none;
   display: inline-block;
   margin: auto;
+}
+
+.links_block {
+  padding: 0;
+}
+
+li {
+  padding: 4px;
 }
 
 .enter,
@@ -47,9 +60,14 @@
 }
 
 .registration {
-  margin: 0 10px;
+  margin: 5px;
   background: rgb(255, 165, 0);
   color: rgb(255, 255, 255);
+}
+@media (min-width: 768px) {
+  .registration {
+    margin: 0 15px;
+  }
 }
 
 .text {
@@ -64,4 +82,9 @@
 .text:hover {
   border-color: rgb(255, 165, 0);
   border-radius: 10px;
+}
+@media (min-width: 768px) {
+  .text {
+    font-size: 20px;
+  }
 }/*# sourceMappingURL=header.module.css.map */

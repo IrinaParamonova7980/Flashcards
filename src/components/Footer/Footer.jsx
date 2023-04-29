@@ -5,10 +5,12 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <div className={styles.footer}>
+      <Link to="/">
       <div className={styles.logo_block}>
         <img src={logo} className={styles.logo} alt={"FleshCards"}></img>
         <div className={styles.name}>FleshCards</div>
-      </div>
+        </div>
+        </Link>
       <div>
         <Link to="/game" className={styles.text}>
           Учить

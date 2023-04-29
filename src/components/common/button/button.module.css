@@ -1,6 +1,12 @@
 .button {
-  padding: 5px 10px;
+  padding: 3px;
   border-radius: 10px;
-  font-size: 14px;
+  font-size: 12px;
   cursor: pointer;
+}
+@media (min-width: 768px) {
+  .button {
+    padding: 5px 10px;
+    font-size: 16px;
+  }
 }/*# sourceMappingURL=button.module.css.map */

@@ -1,12 +1,23 @@
 @import "./../variables.scss";
 
+.listwords_block {
+  margin: 8px 0 0 0;
+  overflow-x: auto;
+}
+
 .table {
-  width: 100vw;
+  width: 350px;
   border-collapse: collapse;
   font-size: $fontSmall;
+  background-color: $fon;
 
-  @media (min-width: 768px) {
+  @media (min-width: 350px) {
+    width: 100vw;
+  }
+
+  @media (min-width: 768px), (orientation: landscape) {
     font-size: $fontAverage;
+    width: 100vw;
   }
 }
 
@@ -14,7 +25,7 @@ th,
 td {
   width: 20%;
   padding: 1px;
-  border: 2px solid $colorSecond;
+  border: 1px solid $colorSecond;
 
   @media (min-width: 768px) {
     padding: 5px;
@@ -43,7 +54,8 @@ td {
 }
 
 .heading {
-  padding: 5px;
+  padding: 10px;
+  color: $colorBasic;
 }
 
 .image {

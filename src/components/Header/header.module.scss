@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 2px solid $colorSecond;
 }
 
 .nav {
@@ -18,20 +19,32 @@
 
 .logo {
   width: 50px;
-  padding: 5px;
+  padding: 10px;
 }
 
 .name {
+  display: none;
   font-size: $fontAverage;
   font-weight: $fontWeightBold;
   color: $colorFourth;
-  text-decoration: none;
+  
+  @media (min-width: 768px) {
+    display: block;
+  }
 }
 
 .links_block li {
   list-style-type: none;
   display: inline-block;
   margin: auto;
+}
+
+.links_block {
+  padding: 0;
+}
+
+li {
+  padding: 4px;
 }
 
 .enter,
@@ -52,12 +65,16 @@
   margin: 0 10px;
   background: $colorBasic;
   color: $textLight;
+
+  @media (min-width: 768px) {
+    margin: 0 15px;
+  }
 }
 
 .text {
   font-size: $fontSmall;
   font-weight: $fontWeightBold;
-  color: $colorBasic;
+  color: $textDark;
   padding: 0 20px;
   cursor: pointer;
   text-decoration: none;
@@ -66,5 +83,9 @@
   &:hover {
     border-color: $colorBasic;
     border-radius: 10px;
+  }
+
+  @media (min-width: 768px) {
+    font-size: $fontAverage;
   }
 }
