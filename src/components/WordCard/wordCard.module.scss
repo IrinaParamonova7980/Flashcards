@@ -1,6 +1,7 @@
 @import "./../variables.scss";
 
 .card {
+  position: relative;
   width: 70%;
   height: 320px;
   border-radius: 10px;
@@ -23,8 +24,14 @@
 }
 
 .topic {
-  font-size: $fontSmall;
+  position: absolute;
   bottom: 10px;
+  left: calc(50% - 40px);
+  font-size: $fontSmall;
+
+  @media (min-width: 768px), (orientation: landscape) {
+    left: 100px;
+  }
 }
 
 .button {

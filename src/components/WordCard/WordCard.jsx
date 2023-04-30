@@ -22,7 +22,7 @@ export default function WordCard(props) {
           onClick={() => showTranslation(true)}
         ></Button>
       )}
-      <div className={styles.topic}>{props.tags}</div>
+      <div className={styles.topic}>Тема: {props.tags}</div>
     </div>
   );
 }
