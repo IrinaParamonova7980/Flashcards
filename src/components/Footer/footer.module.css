@@ -1,10 +1,9 @@
 .footer {
   display: flex;
-  padding: 5px;
+  padding: 10px 5px;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid rgb(255, 165, 0);
-  background-color: rgb(255, 165, 0);
+  border-top: 2px solid rgb(211, 211, 211);
 }
 
 .logo_block {
@@ -13,7 +12,7 @@
   align-items: center;
 }
 
-a {
+.link {
   text-decoration: none;
 }
 
@@ -42,7 +41,7 @@ a {
 .text {
   font-size: 16px;
   font-weight: 600;
-  color: rgb(255, 255, 255);
+  color: rgb(72, 69, 69);
   padding: 5px 10px;
   cursor: pointer;
   text-decoration: none;

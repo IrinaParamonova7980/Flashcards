@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <div className={styles.footer}>
-      <Link to="/">
+      <Link to="/" className={styles.link}>
       <div className={styles.logo_block}>
         <img src={logo} className={styles.logo} alt={"FleshCards"}></img>
         <div className={styles.name}>FleshCards</div>

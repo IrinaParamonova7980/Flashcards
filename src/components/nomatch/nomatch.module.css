@@ -1,0 +1,60 @@
+.container {
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 20px 0;
+}
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    height: 80%;
+  }
+}
+
+.image {
+  width: 280px;
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .image {
+    width: 300px;
+    padding: 50px;
+  }
+}
+
+.header {
+  font-size: 50px;
+  color: rgb(255, 165, 0);
+  margin: 20px 0 0 0;
+}
+@media (min-width: 768px) {
+  .header {
+    font-size: 100px;
+    margin: 0 0 20px 0;
+  }
+}
+
+.notfaund {
+  font-size: 20px;
+  color: rgb(255, 165, 0);
+  margin: 0 0 10px 0;
+}
+@media (min-width: 768px) {
+  .notfaund {
+    font-size: 30px;
+  }
+}
+
+.link {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgb(0, 128, 0);
+  text-decoration: none;
+}
+@media (min-width: 768px) {
+  .link {
+    font-size: 16px;
+  }
+}/*# sourceMappingURL=nomatch.module.css.map */

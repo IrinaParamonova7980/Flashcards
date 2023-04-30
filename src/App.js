@@ -4,6 +4,7 @@ import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import FlippingCards from "./components/flippingCards/FlippingCards";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NoMatch from "./components/nomatch/NoMatch";
 
 export default function App() {
   return (
@@ -29,6 +30,3 @@ export default function App() {
   );
 }
 
-function NoMatch() {
-  return <h2>404 Page Not Found</h2>;
-}

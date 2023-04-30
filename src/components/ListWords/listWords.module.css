@@ -1,11 +1,23 @@
+.listwords_block {
+  margin: 8px 0 0 0;
+  overflow-x: auto;
+}
+
 .table {
-  width: 100vw;
+  width: 350px;
   border-collapse: collapse;
   font-size: 16px;
+  background-color: rgb(247, 247, 220);
 }
-@media (min-width: 768px) {
+@media (min-width: 350px) {
+  .table {
+    width: 100vw;
+  }
+}
+@media (min-width: 768px), (orientation: landscape) {
   .table {
     font-size: 20px;
+    width: 100vw;
   }
 }
 
@@ -13,7 +25,7 @@ th,
 td {
   width: 20%;
   padding: 1px;
-  border: 2px solid rgb(211, 211, 211);
+  border: 1px solid rgb(211, 211, 211);
 }
 @media (min-width: 768px) {
   th,
@@ -45,7 +57,8 @@ td {
 }
 
 .heading {
-  padding: 5px;
+  padding: 10px;
+  color: rgb(255, 165, 0);
 }
 
 .image {

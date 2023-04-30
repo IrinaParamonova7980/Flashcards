@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <div className={styles.header}>
-      <Link to="/">
+      <Link to="/" className={styles.link}>
         <div className={styles.logo_block}>
           <img src={logo} className={styles.logo} alt={"FlashCards"}></img>
           <div className={styles.name}>FlashCards</div>

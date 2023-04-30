@@ -5,7 +5,7 @@
   border: 5px solid rgb(255, 165, 0);
   box-shadow: 4px 7px 7px 6px rgba(238, 201, 57, 0.2);
 }
-@media (min-width: 768px) and (orientation: landscape) {
+@media (min-width: 768px), (orientation: landscape) {
   .card {
     width: 300px;
   }
