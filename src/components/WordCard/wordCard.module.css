@@ -1,4 +1,5 @@
 .card {
+  position: relative;
   width: 70%;
   height: 320px;
   border-radius: 10px;
@@ -22,8 +23,15 @@
 }
 
 .topic {
-  font-size: 16px;
+  position: absolute;
   bottom: 10px;
+  left: calc(50% - 40px);
+  font-size: 16px;
+}
+@media (min-width: 768px), (orientation: landscape) {
+  .topic {
+    left: 100px;
+  }
 }
 
 .button {

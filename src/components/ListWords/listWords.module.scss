@@ -39,81 +39,12 @@ td {
 }
 
 .word,
-.heading,
-.input {
+.heading {
   color: $textDark;
   font-weight: $fontWeightBold;
-}
-
-.input {
-  font-weight: 400;
-
-  @media (min-width: 768px) {
-    font-weight: $fontWeightBold;
-  }
 }
 
 .heading {
   padding: 10px;
   color: $colorBasic;
-}
-
-.image {
-  width: 15px;
-  padding: 2px;
-
-  &:hover {
-    width: 18px;
-  }
-
-  @media (min-width: 768px) {
-    width: 20px;
-    padding: 0 7px;
-
-    &:hover {
-      width: 22px;
-    }
-  }
-}
-
-.input_block {
-  background-color: $colorBasic_transparent;
-}
-
-.input {
-  width: 90%;
-  padding: 2px;
-  border: 1px solid $colorSecond;
-  font-size: $fontSmall;
-  outline: none;
-
-  &:focus {
-    border: 1px solid $colorBasic;
-  }
-
-  @media (min-width: 768px) {
-    padding: 4px;
-  }
-}
-
-.button_save,
-.button_cancel {
-  color: $textLight;
-  border-color: $colorFourth;
-  background: $colorBasic;
-
-  &:hover {
-    color: $colorSecond;
-  }
-}
-
-.button_save {
-  margin: 0 10px;
-  background-color: $colorFourth;
-  border-color: $colorFourth;
-}
-
-.button_cancel {
-  background-color: $colorThird;
-  border-color: $colorThird;
 }

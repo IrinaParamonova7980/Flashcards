@@ -1,0 +1,92 @@
+th,
+td {
+  width: 20%;
+  padding: 1px;
+  border: 1px solid rgb(211, 211, 211);
+}
+@media (min-width: 768px) {
+  th,
+  td {
+    padding: 5px;
+  }
+}
+
+.thead {
+  color: rgb(255, 255, 255);
+  background: rgb(255, 165, 0);
+  font-size: 16px;
+}
+
+.word,
+.input {
+  color: rgb(72, 69, 69);
+  font-weight: 600;
+}
+
+.input {
+  font-weight: 400;
+}
+@media (min-width: 768px) {
+  .input {
+    font-weight: 600;
+  }
+}
+
+.image {
+  width: 15px;
+  padding: 2px;
+}
+.image:hover {
+  width: 18px;
+}
+@media (min-width: 768px) {
+  .image {
+    width: 20px;
+    padding: 0 7px;
+  }
+  .image:hover {
+    width: 22px;
+  }
+}
+
+.input_block {
+  background-color: rgba(255, 165, 0, 0.2);
+}
+
+.input {
+  width: 90%;
+  padding: 2px;
+  border: 1px solid rgb(211, 211, 211);
+  font-size: 16px;
+  outline: none;
+}
+.input:focus {
+  border: 1px solid rgb(255, 165, 0);
+}
+@media (min-width: 768px) {
+  .input {
+    padding: 4px;
+  }
+}
+
+.button_save,
+.button_cancel {
+  color: rgb(255, 255, 255);
+  border-color: rgb(0, 128, 0);
+  background: rgb(255, 165, 0);
+}
+.button_save:hover,
+.button_cancel:hover {
+  color: rgb(211, 211, 211);
+}
+
+.button_save {
+  margin: 0 10px;
+  background-color: rgb(0, 128, 0);
+  border-color: rgb(0, 128, 0);
+}
+
+.button_cancel {
+  background-color: rgb(240, 103, 125);
+  border-color: rgb(240, 103, 125);
+}/*# sourceMappingURL=tableRow.module.css.map */
