@@ -79,14 +79,12 @@ li {
   font-size: 16px;
   font-weight: 600;
   color: rgb(72, 69, 69);
-  padding: 0 20px;
+  margin: 0 20px;
   cursor: pointer;
   text-decoration: none;
-  border: 2px solid rgb(255, 255, 255);
 }
 .text:hover {
-  border-color: rgb(255, 165, 0);
-  border-radius: 10px;
+  border-bottom: 2px solid rgb(255, 165, 0);
 }
 @media (min-width: 768px) {
   .text {

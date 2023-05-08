@@ -1,16 +1,22 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useRef, useEffect } from "react";
 import styles from "./flippingCards.module.scss";
 import forward from "../assets/forward.svg";
 import back from "../assets/back.svg";
 import data from "../../data.json";
-import { useEffect } from "react";
 import WordCard from "../wordCard/WordCard";
 
 export default function FlippingCards(prop) {
   const [index, setIndex] = useState(prop.index || 0);
+  const [count, setCount] = useState(0);
+  const ref = useRef();
+
+  useEffect(() => ref.current.focus(), []);
 
   const clickButtonBack = useCallback(() => setIndex(() => index - 1), [index]);
-  const clickButtonForward = useCallback(() => setIndex(() => index + 1), [index]);
+  const clickButtonForward = useCallback(
+    () => setIndex(() => index + 1),
+    [index]
+  );
 
   useEffect(() => {
     const lastIndex = data.length - 1;
@@ -21,6 +27,10 @@ export default function FlippingCards(prop) {
       setIndex(0);
     }
   }, [index]);
+
+  const addToWord = () => {
+    setCount(count + 1);
+  };
 
   return (
     <>
@@ -39,7 +49,12 @@ export default function FlippingCards(prop) {
 
           return (
             <article className={styles[position]} key={id}>
-              <WordCard key={id} {...props}></WordCard>
+              <WordCard
+                key={id}
+                {...props}
+                onAddToWord={addToWord}
+                ref={ref}
+              ></WordCard>
             </article>
           );
         })}
@@ -61,6 +76,7 @@ export default function FlippingCards(prop) {
       <div className={styles.numberCard}>
         {index + 1} / {data.length}
       </div>
+      <div className={styles.count}>Выучено слов: {count}</div>
     </>
   );
 }

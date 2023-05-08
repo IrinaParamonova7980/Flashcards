@@ -79,14 +79,12 @@ li {
   font-size: $fontSmall;
   font-weight: $fontWeightBold;
   color: $textDark;
-  padding: 0 20px;
+  margin: 0 20px;
   cursor: pointer;
   text-decoration: none;
-  border: 2px solid $textLight;
-
+  
   &:hover {
-    border-color: $colorBasic;
-    border-radius: 10px;
+    border-bottom: 2px solid $colorBasic;
   }
 
   @media (min-width: 768px) {
