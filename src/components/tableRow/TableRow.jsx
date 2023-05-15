@@ -8,24 +8,25 @@ import { useState } from "react";
 export default function TableRow(props) {
   const [editing, editWord] = useState(true);
   const [userData, setUserData] = useState(props);
-  const [value, setValue] = useState({
-    english: props.english,
-    transcription: props.transcription,
-    russian: props.russian,
-    tags: props.tags,
+  const [valueUser, setValueUser] = useState({
+    english: props.english || "",
+    transcription: props.transcription || "",
+    russian: props.russian || "",
+    tags: props.tags || "",
   });
 
   const handleChange = (e) => {
-    setValue(([e.target.name] = e.target.value));
+    const { value, name } = e.target;
+    setValueUser({ ...valueUser, [name]: value });
   };
 
   const handleSave = (e) => {
     e.preventDefault();
     if (
-      value.english.length &&
-      value.transcription.length &&
-      value.russian.length &&
-      value.tags.length === 0
+      valueUser.english.length &&
+      valueUser.transcription.length &&
+      valueUser.russian.length &&
+      valueUser.tags.length === 0
     ) {
       console.log("Поле не заполнено");
     }
@@ -42,7 +43,7 @@ export default function TableRow(props) {
               type="text"
               name="english"
               className={styles.input}
-              value={value.english}
+              value={valueUser.english}
               onChange={handleChange}
             ></input>
           </td>
@@ -55,7 +56,7 @@ export default function TableRow(props) {
               type="text"
               name="transcription"
               className={styles.input}
-              value={value.transcription}
+              value={valueUser.transcription}
               onChange={handleChange}
             ></input>
           </td>
@@ -68,7 +69,7 @@ export default function TableRow(props) {
               type="text"
               name="russian"
               className={styles.input}
-              value={value.russian}
+              value={valueUser.russian}
               onChange={handleChange}
             ></input>
           </td>
@@ -81,7 +82,7 @@ export default function TableRow(props) {
               type="text"
               name="tags"
               className={styles.input}
-              value={value.tags}
+              value={valueUser.tags}
               onChange={handleChange}
             ></input>
           </td>
