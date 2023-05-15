@@ -53,10 +53,10 @@ td {
   background-color: $colorBasic_transparent;
 }
 
-.input {
+.input,
+.input_empty {
   width: 90%;
   padding: 2px;
-  border: 1px solid $colorSecond;
   font-size: $fontSmall;
   outline: none;
 
@@ -67,6 +67,14 @@ td {
   @media (min-width: 768px) {
     padding: 4px;
   }
+}
+
+.input {
+  border: 1px solid $colorSecond;
+}
+
+.input_empty {
+  border: 1px solid red;
 }
 
 .button_save,
@@ -91,6 +99,6 @@ td {
   border-color: $colorThird;
 }
 
-.error{
+.error {
   color: red;
 }

@@ -1,6 +1,6 @@
 import styles from "./tableRow.module.scss";
-import saveIcon from "../assets/save.svg";
-import cancelIcon from "../assets/cancel.svg";
+//import saveIcon from "../assets/save.svg";
+//import cancelIcon from "../assets/cancel.svg";
 import editIcon from "../assets/edit.svg";
 import deleteIcon from "../assets/delete.svg";
 import { useState } from "react";
@@ -14,21 +14,27 @@ export default function TableRow(props) {
     russian: props.russian || "",
     tags: props.tags || "",
   });
+  const [isDisabled, setDisabled] = useState(false);
 
   const handleChange = (e) => {
-    const { value, name } = e.target;
-    setValueUser({ ...valueUser, [name]: value });
+    setValueUser({ ...valueUser, [e.target.name]: e.target.value });
+    if (e.target.value.length === 0) {
+      setDisabled(true);
+    } else {
+      setDisabled(false);
+    }
   };
 
   const handleSave = (e) => {
     e.preventDefault();
-    if (
-      valueUser.english.length &&
-      valueUser.transcription.length &&
-      valueUser.russian.length &&
-      valueUser.tags.length === 0
-    ) {
-      console.log("Поле не заполнено");
+    if (valueUser.english.length < 3) {
+      console.log("Ошибка в поле 'Слово'");
+    } else if (valueUser.transcription.length < 3) {
+      console.log("Ошибка в поле 'Транскрипция'");
+    } else if (valueUser.russian.length < 3) {
+      console.log("Ошибка в поле 'Перевод'");
+    } else if (valueUser.tags.length < 3) {
+      console.log("Ошибка в поле 'Тема'");
     }
   };
 
@@ -42,7 +48,7 @@ export default function TableRow(props) {
             <input
               type="text"
               name="english"
-              className={styles.input}
+              className={isDisabled ? styles.input_empty : styles.input}
               value={valueUser.english}
               onChange={handleChange}
             ></input>
@@ -55,7 +61,7 @@ export default function TableRow(props) {
             <input
               type="text"
               name="transcription"
-              className={styles.input}
+              className={isDisabled ? styles.input_empty : styles.input}
               value={valueUser.transcription}
               onChange={handleChange}
             ></input>
@@ -68,7 +74,7 @@ export default function TableRow(props) {
             <input
               type="text"
               name="russian"
-              className={styles.input}
+              className={isDisabled ? styles.input_empty : styles.input}
               value={valueUser.russian}
               onChange={handleChange}
             ></input>
@@ -81,7 +87,7 @@ export default function TableRow(props) {
             <input
               type="text"
               name="tags"
-              className={styles.input}
+              className={isDisabled ? styles.input_empty : styles.input}
               value={valueUser.tags}
               onChange={handleChange}
             ></input>
@@ -105,13 +111,30 @@ export default function TableRow(props) {
           </td>
         ) : (
           <td className={styles.button_block}>
-            <img
+            <button
+              alt={"Сохранить"}
+              onClick={handleSave}
+              disabled={isDisabled}
+            >
+              Сохранить
+            </button>
+            {/* <img
               src={saveIcon}
               alt={"Сохранить"}
               className={styles.image}
               onClick={handleSave}
-            ></img>
-            <img
+              disabled={isDisabled}
+            ></img> */}
+            <button
+              alt={"Отменить"}
+              onClick={() => {
+                setUserData(props);
+                editWord(true);
+              }}
+            >
+              Отменить
+            </button>
+            {/* <img
               src={cancelIcon}
               alt={"Отменить"}
               className={styles.image}
@@ -119,7 +142,7 @@ export default function TableRow(props) {
                 setUserData(props);
                 editWord(true);
               }}
-            ></img>
+            ></img> */}
           </td>
         )}
       </tr>
