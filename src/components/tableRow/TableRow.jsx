@@ -15,6 +15,7 @@ export default function TableRow(props) {
     tags: props.tags || "",
   });
   const [isDisabled, setDisabled] = useState(false);
+  const [errorField, setErrorField] = useState("");
 
   const handleChange = (e) => {
     setValueUser({ ...valueUser, [e.target.name]: e.target.value });
@@ -26,15 +27,17 @@ export default function TableRow(props) {
   };
 
   const handleSave = (e) => {
-    e.preventDefault();
-    if (valueUser.english.length < 3) {
-      console.log("Ошибка в поле 'Слово'");
-    } else if (valueUser.transcription.length < 3) {
-      console.log("Ошибка в поле 'Транскрипция'");
-    } else if (valueUser.russian.length < 3) {
-      console.log("Ошибка в поле 'Перевод'");
-    } else if (valueUser.tags.length < 3) {
-      console.log("Ошибка в поле 'Тема'");
+    const re = /^\D+$/;
+    if (!re.test(valueUser.english)) {
+      setErrorField("Ошибка");
+    } else {
+      setErrorField("");
+      console.log({
+        english: valueUser.english,
+        transcription: valueUser.transcription,
+        russian: valueUser.russian,
+        tags: valueUser.tags,
+      });
     }
   };
 
@@ -143,10 +146,10 @@ export default function TableRow(props) {
                 editWord(true);
               }}
             ></img> */}
+            {errorField && <div className={styles.error}>{errorField}</div>}
           </td>
         )}
       </tr>
-      {/* {error && <tr className={styles.error}>{"Поле не заполнено" }</tr> } */}
     </>
   );
 }
