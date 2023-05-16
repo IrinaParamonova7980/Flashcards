@@ -19,6 +19,7 @@ export default function TableRow(props) {
     setValueUser({ ...valueUser, [e.target.name]: e.target.value });
     if (e.target.value.length === 0) {
       setDisabled(true);
+      setErrorField("Заполните поле");
     } else {
       setDisabled(false);
     }
@@ -27,13 +28,13 @@ export default function TableRow(props) {
   const handleSave = (e) => {
     const re = /^\D+$/;
     if (!re.test(valueUser.english)) {
-      setErrorField("Ошибка");
+      setErrorField("Ошибка в поле ввода");
     } else if (!re.test(valueUser.transcription)) {
-      setErrorField("Ошибка");
+      setErrorField("Ошибка в поле ввода");
     } else if (!re.test(valueUser.russian)) {
-      setErrorField("Ошибка");
+      setErrorField("Ошибка в поле ввода");
     } else if (!re.test(valueUser.tags)) {
-      setErrorField("Ошибка");
+      setErrorField("Ошибка в поле ввода");
     } else {
       setErrorField("");
       console.log({

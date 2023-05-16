@@ -1,9 +1,11 @@
 import styles from "./wordCard.module.scss";
 import Button from "../common/button/Button";
-import { useState } from "react";
+import { useState,useCallback } from "react";
 
 function WordCard(props) {
   const [clickButton, showTranslation] = useState(false);
+
+  const showRussian = useCallback(() => showTranslation(false), []);
 
   const click = () => {
     showTranslation(true);
@@ -16,7 +18,7 @@ function WordCard(props) {
       <div className={styles.transcription}>{props.transcription}</div>
       {clickButton ? (
         <div>
-          <h2 className={styles.russian} onClick={() => showTranslation(false)}>
+          <h2 className={styles.russian} onClick={showRussian}>
             {props.russian}
           </h2>
         </div>
