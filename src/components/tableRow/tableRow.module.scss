@@ -81,10 +81,14 @@ td {
 .button_cancel {
   color: $textLight;
   border-color: $colorFourth;
-  background: $colorBasic;
+  cursor: pointer;
 
   &:hover {
     color: $colorSecond;
+  }
+
+  &:disabled {
+    color: $textDark;
   }
 }
 

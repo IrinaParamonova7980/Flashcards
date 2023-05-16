@@ -1,6 +1,4 @@
 import styles from "./tableRow.module.scss";
-//import saveIcon from "../assets/save.svg";
-//import cancelIcon from "../assets/cancel.svg";
 import editIcon from "../assets/edit.svg";
 import deleteIcon from "../assets/delete.svg";
 import { useState } from "react";
@@ -30,6 +28,12 @@ export default function TableRow(props) {
     const re = /^\D+$/;
     if (!re.test(valueUser.english)) {
       setErrorField("Ошибка");
+    } else if (!re.test(valueUser.transcription)) {
+      setErrorField("Ошибка");
+    } else if (!re.test(valueUser.russian)) {
+      setErrorField("Ошибка");
+    } else if (!re.test(valueUser.tags)) {
+      setErrorField("Ошибка");
     } else {
       setErrorField("");
       console.log({
@@ -38,6 +42,7 @@ export default function TableRow(props) {
         russian: valueUser.russian,
         tags: valueUser.tags,
       });
+      editWord(true);
     }
   };
 
@@ -115,20 +120,15 @@ export default function TableRow(props) {
         ) : (
           <td className={styles.button_block}>
             <button
+              className={styles.button_save}
               alt={"Сохранить"}
               onClick={handleSave}
               disabled={isDisabled}
             >
               Сохранить
             </button>
-            {/* <img
-              src={saveIcon}
-              alt={"Сохранить"}
-              className={styles.image}
-              onClick={handleSave}
-              disabled={isDisabled}
-            ></img> */}
             <button
+              className={styles.button_cancel}
               alt={"Отменить"}
               onClick={() => {
                 setUserData(props);
@@ -137,15 +137,6 @@ export default function TableRow(props) {
             >
               Отменить
             </button>
-            {/* <img
-              src={cancelIcon}
-              alt={"Отменить"}
-              className={styles.image}
-              onClick={() => {
-                setUserData(props);
-                editWord(true);
-              }}
-            ></img> */}
             {errorField && <div className={styles.error}>{errorField}</div>}
           </td>
         )}
