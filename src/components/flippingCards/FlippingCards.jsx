@@ -10,7 +10,7 @@ export default function FlippingCards(prop) {
   const [count, setCount] = useState(0);
   const ref = useRef();
 
-  useEffect(() => ref.current.focus(), []);
+  //useEffect(() => ref.current.focus(), []);
 
   const clickButtonBack = useCallback(() => setIndex(() => index - 1), [index]);
   const clickButtonForward = useCallback(

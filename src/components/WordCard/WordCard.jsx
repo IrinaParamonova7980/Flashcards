@@ -1,8 +1,8 @@
 import styles from "./wordCard.module.scss";
 import Button from "../common/button/Button";
-import { forwardRef, useState } from "react";
+import { useState } from "react";
 
-const WordCard = forwardRef((props, ref) => {
+function WordCard(props) {
   const [clickButton, showTranslation] = useState(false);
 
   const click = () => {
@@ -12,11 +12,11 @@ const WordCard = forwardRef((props, ref) => {
 
   return (
     <div className={styles.card}>
-      <h2 className={styles.english} ref={ref}>{props.english}</h2>
+      <h2 className={styles.english}>{props.english}</h2>
       <div className={styles.transcription}>{props.transcription}</div>
       {clickButton ? (
         <div>
-          <h2 className={styles.russian} onClick={() => showTranslation(false)} >
+          <h2 className={styles.russian} onClick={() => showTranslation(false)}>
             {props.russian}
           </h2>
         </div>
@@ -25,13 +25,12 @@ const WordCard = forwardRef((props, ref) => {
           button="Показать перевод"
           buttonstyle={styles.button}
           onClick={click}
-          ref={ref}
         ></Button>
       )}
       <div className={styles.topic}>Тема: {props.tags}</div>
     </div>
   );
-});
+}
 
 WordCard.defaultProps = {
   english: "Слово не определено",
