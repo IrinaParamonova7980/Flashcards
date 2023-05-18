@@ -2,7 +2,7 @@ import "./App.css";
 import ListWords from "./components/listWords/ListWords";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
-import FlippingCards from "./components/flippingCards/FlippingCards";
+import Carousel from "./components/carousel/Carousel";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NoMatch from "./components/nomatch/NoMatch";
 
@@ -17,7 +17,7 @@ export default function App() {
         <main>
           <Routes>
             <Route exact path="/" element={<ListWords />} />
-            <Route path="/game" element={<FlippingCards index={0} />} />
+            <Route path="/game" element={<Carousel index={0} />} />
             <Route path="*" element={<NoMatch />} />
           </Routes>
         </main>
@@ -29,4 +29,3 @@ export default function App() {
     </Router>
   );
 }
-

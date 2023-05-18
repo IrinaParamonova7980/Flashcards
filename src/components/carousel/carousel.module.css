@@ -1,0 +1,30 @@
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto 20px auto;
+}
+
+.back,
+.forward {
+  width: 35px;
+  margin: 20px;
+  cursor: pointer;
+}
+.back:hover,
+.forward:hover {
+  background: rgb(211, 211, 211);
+}
+
+.numberCard {
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.count {
+  margin: 20px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(0, 128, 0);
+}/*# sourceMappingURL=carousel.module.css.map */

@@ -43,6 +43,9 @@
 .button:hover {
   font-weight: 600;
 }
+.button:focus {
+  border: 3px solid rgb(240, 103, 125);
+}
 
 .russian {
   margin: 25px;

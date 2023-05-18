@@ -6,7 +6,7 @@ td {
 }
 @media (min-width: 768px) {
   th,
-  td {
+td {
     padding: 5px;
   }
 }
@@ -53,31 +53,45 @@ td {
   background-color: rgba(255, 165, 0, 0.2);
 }
 
-.input {
+.input,
+.input_empty {
   width: 90%;
   padding: 2px;
-  border: 1px solid rgb(211, 211, 211);
   font-size: 16px;
   outline: none;
 }
-.input:focus {
+.input:focus,
+.input_empty:focus {
   border: 1px solid rgb(255, 165, 0);
 }
 @media (min-width: 768px) {
-  .input {
+  .input,
+.input_empty {
     padding: 4px;
   }
+}
+
+.input {
+  border: 1px solid rgb(211, 211, 211);
+}
+
+.input_empty {
+  border: 1px solid red;
 }
 
 .button_save,
 .button_cancel {
   color: rgb(255, 255, 255);
   border-color: rgb(0, 128, 0);
-  background: rgb(255, 165, 0);
+  cursor: pointer;
 }
 .button_save:hover,
 .button_cancel:hover {
   color: rgb(211, 211, 211);
+}
+.button_save:disabled,
+.button_cancel:disabled {
+  color: rgb(72, 69, 69);
 }
 
 .button_save {
@@ -89,4 +103,10 @@ td {
 .button_cancel {
   background-color: rgb(240, 103, 125);
   border-color: rgb(240, 103, 125);
+}
+
+.error {
+  padding: 5px;
+  color: red;
+  font-size: 16px;
 }/*# sourceMappingURL=tableRow.module.css.map */

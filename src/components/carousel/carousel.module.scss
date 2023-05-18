@@ -1,0 +1,32 @@
+@import "./../variables.scss";
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto 20px auto;
+}
+
+.back,
+.forward {
+  width: 35px;
+  margin: 20px;
+  cursor: pointer;
+
+  &:hover {
+    background: $colorSecond;
+  }
+}
+
+.numberCard {
+  margin-bottom: 15px;
+  font-size: $fontAverage;
+  font-weight: $fontWeightBold;
+}
+
+.count {
+  margin: 20px 0;
+  font-size: $fontAverage;
+  font-weight: $fontWeightBold;
+  color: $colorFourth;
+}
