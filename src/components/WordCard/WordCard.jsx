@@ -1,11 +1,13 @@
 import styles from "./wordCard.module.scss";
 import Button from "../common/button/Button";
-import { useState,useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 function WordCard(props) {
   const [clickButton, showTranslation] = useState(false);
-
   const showRussian = useCallback(() => showTranslation(false), []);
+  const ref = useRef();
+
+  useEffect(() => ref.current.focus(), []);
 
   const click = () => {
     showTranslation(true);
@@ -27,6 +29,7 @@ function WordCard(props) {
           button="Показать перевод"
           buttonstyle={styles.button}
           onClick={click}
+          ref={ref}
         ></Button>
       )}
       <div className={styles.topic}>Тема: {props.tags}</div>

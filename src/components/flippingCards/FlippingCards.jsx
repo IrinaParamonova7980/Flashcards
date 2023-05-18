@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useRef, useEffect } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import styles from "./flippingCards.module.scss";
 import forward from "../assets/forward.svg";
 import back from "../assets/back.svg";
@@ -8,9 +8,6 @@ import WordCard from "../wordCard/WordCard";
 export default function FlippingCards(prop) {
   const [index, setIndex] = useState(prop.index || 0);
   const [count, setCount] = useState(0);
-  const ref = useRef();
-
-  //useEffect(() => ref.current.focus(), []);
 
   const clickButtonBack = useCallback(() => setIndex(() => index - 1), [index]);
   const clickButtonForward = useCallback(
@@ -49,12 +46,7 @@ export default function FlippingCards(prop) {
 
           return (
             <article className={styles[position]} key={id}>
-              <WordCard
-                key={id}
-                {...props}
-                onAddToWord={addToWord}
-                ref={ref}
-              ></WordCard>
+              <WordCard key={id} {...props} onAddToWord={addToWord}></WordCard>
             </article>
           );
         })}
