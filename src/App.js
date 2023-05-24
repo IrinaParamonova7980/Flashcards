@@ -41,13 +41,12 @@ export default function App() {
   }
 
   return (
-    <WordContext.Provider value={data}>
-      <Router>
-        <div className="App">
-          <header>
-            <Header></Header>
-          </header>
-
+    <Router>
+      <div className="App">
+        <header>
+          <Header></Header>
+        </header>
+        <WordContext.Provider value={{ data }}>
           <main>
             <Routes>
               <Route exact path="/" element={<ListWords />} />
@@ -55,12 +54,11 @@ export default function App() {
               <Route path="*" element={<NoMatch />} />
             </Routes>
           </main>
-
-          <footer>
-            <Footer></Footer>
-          </footer>
-        </div>
-      </Router>
-    </WordContext.Provider>
+        </WordContext.Provider>
+        <footer>
+          <Footer></Footer>
+        </footer>
+      </div>
+    </Router>
   );
 }
