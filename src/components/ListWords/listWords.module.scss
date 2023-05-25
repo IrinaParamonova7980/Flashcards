@@ -48,3 +48,45 @@ td {
   padding: 10px;
   color: $colorBasic;
 }
+
+.input {
+  width: 90%;
+  padding: 2px;
+  border: 1px solid $colorSecond;
+  font-size: $fontSmall;
+  outline: none;
+
+  &:focus {
+    border: 1px solid $colorBasic;
+  }
+
+  @media (min-width: 768px) {
+    padding: 4px;
+  }
+}
+
+.button_save,
+.button_cancel {
+  color: $textLight;
+  border-color: $colorFourth;
+  cursor: pointer;
+
+  &:hover {
+    color: $colorSecond;
+  }
+
+  &:disabled {
+    color: $textDark;
+  }
+}
+
+.button_save {
+  margin: 0 10px;
+  background-color: $colorFourth;
+  border-color: $colorFourth;
+}
+
+.button_cancel {
+  background-color: $colorThird;
+  border-color: $colorThird;
+}
