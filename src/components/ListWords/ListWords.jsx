@@ -20,7 +20,6 @@ export default function ListWords() {
     setValueUser({ ...valueUser, [e.target.name]: e.target.value });
   };
 
-  let newWord;
   let maxId = 0;
   wordList.forEach(
     (article) => (maxId = article.id > maxId ? article.id : maxId)
