@@ -7,29 +7,48 @@ import { WordContext } from "../wordsContext/WordContext";
 export default function ListWords() {
   const { data } = useContext(WordContext);
   const [writeWord, setWriteWord] = useState(false);
-  const [valueUser, setValueUser] = useState("");
+  const [valueUser, setValueUser] = useState({
+    id: "",
+    english: "",
+    transcription: "",
+    russian: "",
+    tags: "",
+  });
   const [wordList, setWordList] = useState(data);
-  const [newWords, setNewWords] = useState({});
 
   const handleChange = (e) => {
     setValueUser({ ...valueUser, [e.target.name]: e.target.value });
   };
 
   let newWord;
+  let maxId = 0;
+  wordList.forEach(
+    (article) => (maxId = article.id > maxId ? article.id : maxId)
+  );
 
-  // function addWord() {
-  //   newWord = {
-  //     id: data.id + 1,
-  //     english: e.target.value,
-  //     transcription: e.target.value,
-  //     russian: e.target.value,
-  //     tags: e.target.value,
-  //   };
+  function addWord() {
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json; charset=UTF-8" },
+      body: JSON.stringify({
+        id: maxId,
+        english: valueUser.english,
+        transcription: valueUser.transcription,
+        russian: valueUser.russian,
+        tags: valueUser.tags,
+        tags_json: valueUser.tags,
+      }),
+    };
+    fetch("api/words/add", requestOptions)
+      .then((response) => response.json())
+      .then((newWord) => {
+        setWordList((wordList) => [...wordList, newWord]);
+      })
+      .catch((error) => console.log(error.message));
 
-  //   setWordList([...wordList, newWord]);
-  //   setNewWords("");
-  // }
-
+    setValueUser({ english: "", transcription: "", russian: "", tags: "" });
+    setWriteWord(false);
+  }
 
   return (
     <div className={styles.listwords_block}>
@@ -90,7 +109,7 @@ export default function ListWords() {
                 <button
                   className={styles.button_save}
                   onClick={() => {
-                    addWord;
+                    addWord();
                   }}
                 >
                   Добавить
@@ -99,7 +118,6 @@ export default function ListWords() {
                   className={styles.button_cancel}
                   onClick={() => {
                     setWriteWord(false);
-                    setValueUser("");
                   }}
                 >
                   Отменить
@@ -115,10 +133,10 @@ export default function ListWords() {
       <button
         className={styles.button}
         onClick={() => {
-          setAddWord(true);
+          setWriteWord(true);
         }}
       >
-        Добавить слово
+        Новое слово
       </button>
     </div>
   );
