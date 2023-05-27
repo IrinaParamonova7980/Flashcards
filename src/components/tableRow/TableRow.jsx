@@ -27,7 +27,7 @@ export default function TableRow(props) {
     }
   };
 
-  const handleSave = (e) => {
+  const handleSave = (id) => {
     const re = /^\D+$/;
     if (!re.test(valueUser.english)) {
       setErrorField("Ошибка в поле ввода");
@@ -39,17 +39,28 @@ export default function TableRow(props) {
       setErrorField("Ошибка в поле ввода");
     } else {
       setErrorField("");
-      console.log({
+      editWord(true);
+    }
+
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json; charset=UTF-8" },
+      body: JSON.stringify({
         english: valueUser.english,
         transcription: valueUser.transcription,
         russian: valueUser.russian,
         tags: valueUser.tags,
-      });
-      editWord(true);
-    }
+      }),
+    };
+    fetch(`api/words/${id}/update`, requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => console.log(error.message));
   };
 
-  function deleteWord(id) {
+  const deleteWord = (id) => {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json; charset=UTF-8" },
@@ -62,7 +73,7 @@ export default function TableRow(props) {
       })
       .catch((error) => console.log(error.message));
     setDisabledTable(false);
-  }
+  };
 
   return (
     <>
@@ -134,9 +145,7 @@ export default function TableRow(props) {
                 src={deleteIcon}
                 alt={"Удалить"}
                 className={styles.image}
-                onClick={() => {
-                  deleteWord(valueUser.id);
-                }}
+                onClick={() => deleteWord(valueUser.id)}
               ></img>
             </td>
           ) : (
@@ -144,7 +153,7 @@ export default function TableRow(props) {
               <button
                 className={styles.button_save}
                 alt={"Сохранить"}
-                onClick={handleSave}
+                onClick={() => handleSave(valueUser.id)}
                 disabled={isDisabled}
               >
                 Сохранить

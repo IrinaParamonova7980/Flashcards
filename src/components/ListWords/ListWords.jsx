@@ -25,7 +25,7 @@ export default function ListWords() {
     (article) => (maxId = article.id > maxId ? article.id : maxId)
   );
 
-  function addWord() {
+  const addWord=()=> {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json; charset=UTF-8" },
