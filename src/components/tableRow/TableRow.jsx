@@ -58,6 +58,7 @@ export default function TableRow(props) {
         console.log(data);
       })
       .catch((error) => console.log(error.message));
+    window.location.reload();
   };
 
   const deleteWord = (id) => {

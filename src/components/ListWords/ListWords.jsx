@@ -25,7 +25,7 @@ export default function ListWords() {
     (article) => (maxId = article.id > maxId ? article.id : maxId)
   );
 
-  const addWord=()=> {
+  const addWord = () => {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json; charset=UTF-8" },
@@ -47,7 +47,8 @@ export default function ListWords() {
 
     setValueUser({ english: "", transcription: "", russian: "", tags: "" });
     setWriteWord(false);
-  }
+    window.location.reload();
+  };
 
   return (
     <div className={styles.listwords_block}>
