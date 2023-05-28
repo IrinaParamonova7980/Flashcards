@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import ListWords from "./components/listWords/ListWords";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
+import Error from "./components/error/Error";
 import Carousel from "./components/carousel/Carousel";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NoMatch from "./components/nomatch/NoMatch";
@@ -14,7 +15,7 @@ export default function App() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://itgirlschool.justmakeit.ru/api/words")
+    fetch("http://itgirlschool.justmakeit.ru/api/words1")
       .then((responce) => {
         if (responce.ok) {
           return responce.json();
@@ -37,7 +38,11 @@ export default function App() {
     return <p>Loading...</p>;
   }
   if (error) {
-    return <p>Error</p>;
+    return (
+      <p>
+        <Error></Error>
+      </p>
+    );
   }
 
   return (
