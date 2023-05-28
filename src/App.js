@@ -8,6 +8,7 @@ import Carousel from "./components/carousel/Carousel";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NoMatch from "./components/nomatch/NoMatch";
 import { WordContext } from "./components/wordsContext/WordContext";
+import Loading from "./components/loading/Loading";
 
 export default function App() {
   const [data, setData] = useState(null);
@@ -15,7 +16,7 @@ export default function App() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://itgirlschool.justmakeit.ru/api/words1")
+    fetch("http://itgirlschool.justmakeit.ru/api/words")
       .then((responce) => {
         if (responce.ok) {
           return responce.json();
@@ -35,7 +36,7 @@ export default function App() {
   }, [data]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <p><Loading></Loading></p>;
   }
   if (error) {
     return (
