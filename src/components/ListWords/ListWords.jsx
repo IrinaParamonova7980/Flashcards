@@ -47,7 +47,6 @@ export default function ListWords() {
 
     setValueUser({ english: "", transcription: "", russian: "", tags: "" });
     setWriteWord(false);
-    window.location.reload();
   };
 
   return (

@@ -31,7 +31,7 @@ export default function App() {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [data]);
 
   if (loading) {
     return <p>Loading...</p>;
