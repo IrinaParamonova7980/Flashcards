@@ -64,7 +64,6 @@ export default function TableRow(props) {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json; charset=UTF-8" },
-      body: JSON.stringify("Удаление слова"),
     };
     fetch(`api/words/${id}/delete`, requestOptions)
       .then((response) => response.json())
