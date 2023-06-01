@@ -60,6 +60,36 @@ class WordsStore {
       });
   };
 
+  @action updateWord = (value) => {
+    this.isLoading = true;
+
+    const newWord = {
+      english: value.english,
+      transcription: value.transcription,
+      russian: value.russian,
+      tags: value.tags,
+    };
+
+    return fetch("./api/words/update", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json: charset=utf-8",
+      },
+      body: JSON.stringify(newWord),
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw response;
+        }
+      })
+      .then(() => {
+        this.words.push(newWord);
+        this.isLoading = false;
+      });
+  };
+
   @action deleteWord = (id) => {
     this.isLoading = true;
 
@@ -78,7 +108,8 @@ class WordsStore {
       })
       .then(() => {
         this.isLoading = false;
-      }).catch((error)=>console.log(error.message))
+      })
+      .catch((error) => console.log(error.message));
   };
 }
 
