@@ -12,12 +12,12 @@ class WordsStore {
   @action fetchData = () => {
     this.isLoading = true;
 
-    return fetch("http://itgirlschool.justmakeit.ru/api/words")
+    return fetch("./api/words")
       .then((response) => {
         if (response.ok) {
           return response.json();
         } else {
-          throw new Error("Ошибка");
+          throw response;
         }
       })
       .then((response) => {
@@ -28,6 +28,57 @@ class WordsStore {
         this.error = error;
         this.isLoading = false;
       });
+  };
+
+  @action addWord = (value) => {
+    this.isLoading = true;
+
+    const newWord = {
+      english: value.english,
+      transcription: value.transcription,
+      russian: value.russian,
+      tags: value.tags,
+    };
+
+    return fetch("./api/words/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json: charset=utf-8",
+      },
+      body: JSON.stringify(newWord),
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw response;
+        }
+      })
+      .then(() => {
+        this.words.push(newWord);
+        this.isLoading = false;
+      });
+  };
+
+  @action deleteWord = (id) => {
+    this.isLoading = true;
+
+    return fetch(`./api/words/${id}/delete`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json: charset=utf-8",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw response;
+        }
+      })
+      .then(() => {
+        this.isLoading = false;
+      }).catch((error)=>console.log(error.message))
   };
 }
 

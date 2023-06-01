@@ -37,12 +37,6 @@ export default function TableRow(props) {
       setErrorField("Ошибка в поле ввода");
     } else {
       setErrorField("");
-      console.log({
-        english: valueUser.english,
-        transcription: valueUser.transcription,
-        russian: valueUser.russian,
-        tags: valueUser.tags,
-      });
       editWord(true);
     }
   };
