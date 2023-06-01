@@ -60,7 +60,7 @@ class WordsStore {
       });
   };
 
-  @action updateWord = (value) => {
+  @action updateWord = (value, id) => {
     this.isLoading = true;
 
     const newWord = {
@@ -70,7 +70,7 @@ class WordsStore {
       tags: value.tags,
     };
 
-    return fetch("./api/words/update", {
+    return fetch(`./api/words/${id}/update`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json: charset=utf-8",
@@ -84,8 +84,8 @@ class WordsStore {
           throw response;
         }
       })
-      .then(() => {
-        this.words.push(newWord);
+      .then((words) => {
+        console.log(words);
         this.isLoading = false;
       });
   };
