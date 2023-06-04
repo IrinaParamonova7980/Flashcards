@@ -30,6 +30,14 @@ const ListWords = inject(["wordsStore"])(
 
     return (
       <div className={styles.listwords_block}>
+        <button
+          className={styles.button}
+          onClick={() => {
+            setWriteWord(true);
+          }}
+        >
+          Новое слово
+        </button>
         <table className={styles.table}>
           <caption className={styles.heading}>Список слов</caption>
           <thead className={styles.thead}>
@@ -42,14 +50,6 @@ const ListWords = inject(["wordsStore"])(
             </tr>
           </thead>
           <tbody>
-            {wordsStore.words.map((item) => (
-              <TableRow
-                key={item.id}
-                {...item}
-                deleteWord={wordsStore.deleteWord}
-                handleSave={wordsStore.updateWord}
-              ></TableRow>
-            ))}
             {writeWord ? (
               <tr>
                 <td>
@@ -105,16 +105,16 @@ const ListWords = inject(["wordsStore"])(
             ) : (
               ""
             )}
+            {wordsStore.words.map((item) => (
+              <TableRow
+                key={item.id}
+                {...item}
+                deleteWord={wordsStore.deleteWord}
+                handleSave={wordsStore.updateWord}
+              ></TableRow>
+            ))}
           </tbody>
         </table>
-        <button
-          className={styles.button}
-          onClick={() => {
-            setWriteWord(true);
-          }}
-        >
-          Новое слово
-        </button>
       </div>
     );
   })
