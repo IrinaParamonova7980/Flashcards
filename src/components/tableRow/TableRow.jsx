@@ -7,6 +7,7 @@ const TableRow = (props) => {
   const [editing, editWord] = useState(true);
   const [userData, setUserData] = useState(props);
   const [valueUser, setValueUser] = useState({
+    id: props.id || "",
     english: props.english || "",
     transcription: props.transcription || "",
     russian: props.russian || "",
@@ -25,7 +26,7 @@ const TableRow = (props) => {
     }
   };
 
-  // const handleSave = (e) => {
+  // const errorСhecking = (e) => {
   //   const re = /^\D+$/;
   //   if (!re.test(valueUser.english)) {
   //     setErrorField("Ошибка в поле ввода");
@@ -110,7 +111,7 @@ const TableRow = (props) => {
               src={deleteIcon}
               alt={"Удалить"}
               className={styles.image}
-              onClick={props.deleteWord}
+              onClick={() => props.deleteWord(valueUser.id)}
             ></img>
           </td>
         ) : (
@@ -118,7 +119,7 @@ const TableRow = (props) => {
             <button
               className={styles.button_save}
               alt={"Сохранить"}
-              onClick={props.handleSave}
+              onClick={() => props.handleSave(valueUser, valueUser.id)}
               disabled={isDisabled}
             >
               Сохранить

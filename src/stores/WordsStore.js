@@ -34,6 +34,7 @@ class WordsStore {
     this.isLoading = true;
 
     const newWord = {
+      id: value.id,
       english: value.english,
       transcription: value.transcription,
       russian: value.russian,
@@ -41,6 +42,30 @@ class WordsStore {
     };
 
     return fetch("./api/words/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json: charset=utf-8",
+      },
+      body: JSON.stringify(newWord),
+    })
+      .then(() => {
+        this.words.push(newWord);
+        this.isLoading = false;
+      })
+      .catch((error) => console.log(error.message));
+  };
+
+  @action updateWord = (value, id) => {
+    this.isLoading = true;
+
+    const newWord = {
+      english: value.english,
+      transcription: value.transcription,
+      russian: value.russian,
+      tags: value.tags,
+    };
+
+    return fetch(`api/words/${id}/update`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json: charset=utf-8",
@@ -55,39 +80,9 @@ class WordsStore {
         }
       })
       .then(() => {
-        this.words.push(newWord);
         this.isLoading = false;
-      });
-  };
-
-  @action updateWord = (value, id) => {
-    this.isLoading = true;
-
-    const newWord = {
-      english: value.english,
-      transcription: value.transcription,
-      russian: value.russian,
-      tags: value.tags,
-    };
-
-    return fetch(`./api/words/${id}/update`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json: charset=utf-8",
-      },
-      body: JSON.stringify(newWord),
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw response;
-        }
       })
-      .then((words) => {
-        console.log(words);
-        this.isLoading = false;
-      });
+      .catch((error) => console.log(error.message));
   };
 
   @action deleteWord = (id) => {
