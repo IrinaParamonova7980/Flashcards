@@ -1,5 +1,4 @@
-import { action, makeAutoObservable, observable } from "mobx";
-
+import { action, makeAutoObservable, observable, runInAction } from "mobx";
 class WordsStore {
   @observable words = [];
   @observable error = null;
@@ -10,14 +9,12 @@ class WordsStore {
   }
 
   @action fetchData = () => {
-    this.isLoading = true;
-
     return fetch("./api/words")
       .then((response) => {
         if (response.ok) {
           return response.json();
         } else {
-          throw response;
+          throw new Error("Error ...");
         }
       })
       .then((response) => {
@@ -59,6 +56,7 @@ class WordsStore {
     this.isLoading = true;
 
     const newWord = {
+      id: value.id,
       english: value.english,
       transcription: value.transcription,
       russian: value.russian,
@@ -76,10 +74,11 @@ class WordsStore {
         if (response.ok) {
           return response.json();
         } else {
-          throw response;
+          throw new Error("Error ...");
         }
       })
       .then(() => {
+        runInAction(() => this.fetchData());
         this.isLoading = false;
       })
       .catch((error) => console.log(error.message));
@@ -98,10 +97,11 @@ class WordsStore {
         if (response.ok) {
           return response.json();
         } else {
-          throw response;
+          throw new Error("Error ...");
         }
       })
       .then(() => {
+        runInAction(() => this.fetchData());
         this.isLoading = false;
       })
       .catch((error) => console.log(error.message));
