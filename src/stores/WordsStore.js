@@ -52,7 +52,7 @@ class WordsStore {
       .catch((error) => console.log(error.message));
   };
 
-  @action updateWord = (value, id) => {
+  @action updateWord = (value) => {
     this.isLoading = true;
 
     const newWord = {
@@ -63,7 +63,7 @@ class WordsStore {
       tags: value.tags,
     };
 
-    return fetch(`api/words/${id}/update`, {
+    return fetch(`api/words/${value.id}/update`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json: charset=utf-8",

@@ -105,13 +105,8 @@ const ListWords = inject(["wordsStore"])(
             ) : (
               ""
             )}
-            {wordsStore.words.map((item) => (
-              <TableRow
-                key={item.id}
-                {...item}
-                deleteWord={wordsStore.deleteWord}
-                handleSave={wordsStore.updateWord}
-              ></TableRow>
+            {wordsStore.words.map((word) => (
+              <TableRow key={word.id} word={word}></TableRow>
             ))}
           </tbody>
         </table>
