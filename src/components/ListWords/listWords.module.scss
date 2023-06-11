@@ -17,7 +17,6 @@
 
   @media (min-width: 768px), (orientation: landscape) {
     font-size: $fontAverage;
-    width: 100vw;
   }
 }
 
@@ -45,6 +44,54 @@ td {
 }
 
 .heading {
-  padding: 10px;
+  padding: 10px 0;
   color: $colorBasic;
+}
+
+.button {
+  margin: 10px auto 0;
+  color: $textLight;
+  background-color: $colorFourth;
+  border-color: $colorFourth;
+  cursor: pointer;
+
+  &:hover {
+    color: $colorSecond;
+  }
+}
+
+.button_save,
+.button_cancel {
+  color: $textLight;
+  border-color: $colorFourth;
+  cursor: pointer;
+
+  &:hover {
+    color: $colorSecond;
+  }
+
+  margin: 0 10px;
+  background-color: $colorFourth;
+  border-color: $colorFourth;
+}
+
+.button_cancel {
+  background-color: $colorThird;
+  border-color: $colorThird;
+}
+
+.input {
+  width: 90%;
+
+  font-size: $fontSmall;
+  border: 1px solid $colorSecond;
+  outline: none;
+
+  &:focus {
+    border: 1px solid $colorBasic;
+  }
+
+  @media (min-width: 768px) {
+    padding: 4px;
+  }
 }

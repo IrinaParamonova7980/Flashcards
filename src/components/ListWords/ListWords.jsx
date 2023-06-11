@@ -36,7 +36,7 @@ const ListWords = inject(["wordsStore"])(
             setWriteWord(true);
           }}
         >
-          Новое слово
+          Добавить слово
         </button>
         <table className={styles.table}>
           <caption className={styles.heading}>Список слов</caption>

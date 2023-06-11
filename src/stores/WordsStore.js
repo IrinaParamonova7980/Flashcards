@@ -46,7 +46,7 @@ class WordsStore {
       body: JSON.stringify(newWord),
     })
       .then(() => {
-        this.words.push(newWord);
+        this.words = [newWord, ...this.words];
         this.isLoading = false;
       })
       .catch((error) => console.log(error.message));
