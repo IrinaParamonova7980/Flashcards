@@ -2,6 +2,7 @@
   "name": "flashcards",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://irinaparamonova7980.github.io/Flashcards/",
   "proxy": "http://itgirlschool.justmakeit.ru",
   "dependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
@@ -65,7 +66,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
