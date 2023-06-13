@@ -2,7 +2,8 @@
 
 React application for learning english words
 
-<img width="700" alt="Снимок экрана приложения Flashcards" src="https://github.com/IrinaParamonova7980/Flashcards/blob/main/flashcard.png">
+<img width="700" alt="Снимок экрана приложения Flashcards" src="https://github.com/IrinaParamonova7980/Flashcards/blob/mobx/main%20view.png">
+<img width="700" alt="Снимок экрана приложения Flashcards" src="https://github.com/IrinaParamonova7980/Flashcards/blob/mobx/word.png">
 
 ## Getting started
 
