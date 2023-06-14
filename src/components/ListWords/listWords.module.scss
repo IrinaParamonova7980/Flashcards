@@ -65,7 +65,7 @@ td {
   }
 }
 
-.button_save,
+.button, .button_save,
 .button_cancel {
   color: $textLight;
   border-color: $colorFourth;
@@ -80,10 +80,14 @@ td {
   }
 }
 
-.button_save {
+.button, .button_save {
   margin: 0 10px;
   background-color: $colorFourth;
   border-color: $colorFourth;
+}
+
+.button{
+  margin: 7px;
 }
 
 .button_cancel {

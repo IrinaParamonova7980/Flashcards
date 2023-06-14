@@ -135,7 +135,7 @@ export default function ListWords() {
           setWriteWord(true);
         }}
       >
-        Новое слово
+        Добавить слово
       </button>
     </div>
   );

@@ -1,6 +1,5 @@
 import styles from "./header.module.scss";
 import logo from "./../assets/logo.svg";
-import Button from "../common/button/Button";
 import { Link } from "react-router-dom";
 
 export default function Header() {
@@ -27,17 +26,6 @@ export default function Header() {
           </li>
         </ul>
       </nav>
-      <div className={styles.button_block}>
-        <Link to="*">
-          <Button button="Войти" buttonstyle={styles.enter}></Button>
-        </Link>
-        <Link to="*">
-          <Button
-            button="Регистрация"
-            buttonstyle={styles.registration}
-          ></Button>
-        </Link>
-      </div>
     </div>
   );
 }
